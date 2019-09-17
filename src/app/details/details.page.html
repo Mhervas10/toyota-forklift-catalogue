@@ -14,11 +14,11 @@
         <img [src]="image" alt="this is the image"/>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <!-- <ion-row>
       <ion-col size="6" offset="3">
         <ion-button fill="outline" expand="block" size="small" (click)="openImagePicker()">Change Picture</ion-button>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
   </div>
   <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
 
@@ -82,8 +82,15 @@
 
     </ion-item>
 
-    <!-- <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button> -->
+  <!-- <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button> -->
 
-  <!-- <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button> -->
+  <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button>
+
+  <ion-button class="submit-button" expand="block" color="danger" type="submit" ><ion-icon ios="ios-heart" md="md-heart"></ion-icon></ion-button>
+  
+  
+  <ion-button class="delete-button" expand="block" color="primary" type="submit" ><ion-icon ios="ios-cart" md="md-cart"></ion-icon></ion-button>
+  
+
   </form>
 </ion-content>
