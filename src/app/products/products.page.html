@@ -24,7 +24,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let product of products">
-        <ion-card [routerLink]="['/details', product.payload.doc.id]">
+        <ion-card [routerLink]="['/forkLiftDetails', product.payload.doc.id]">
         
           <img [src]="product.payload.doc.data().image"/>
           <ion-card-content>

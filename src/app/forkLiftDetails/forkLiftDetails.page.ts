@@ -7,11 +7,11 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.page.html',
-  styleUrls: ['./details.page.scss'],
+  selector: 'app-forkLiftDetails',
+  templateUrl: './forkLiftDetails.page.html',
+  styleUrls: ['./forkLiftDetails.page.scss'],
 })
-export class DetailsPage implements OnInit {
+export class ForkLiftDetailsPage implements OnInit {
 
   validations_form: FormGroup;
   image: any;
@@ -58,10 +58,10 @@ export class DetailsPage implements OnInit {
       this.price = this.item.price;
      }
     })
-    this.validations_form = this.formBuilder.group({
-      name: new FormControl(this.item.name, Validators.required),
+    // this.validations_form = this.formBuilder.group({
+    //   model: new FormControl(this.item.model, Validators.required),
 
-    });
+    // });
   }
 
   onSubmit(value){
