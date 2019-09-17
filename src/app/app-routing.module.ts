@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'details/:id', loadChildren: './details/details.module#DetailsPageModule' },
   { path: 'products', loadChildren: './products/products.module#ProductsPageModule' },
   { path: 'new-task', loadChildren: './new-task/new-task.module#NewTaskPageModule' },
+  { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
   // { path: 'new-task-modal', loadChildren: './new-task-modal/new-task-modal.module#NewTaskModalPageModule' },
 ];
 

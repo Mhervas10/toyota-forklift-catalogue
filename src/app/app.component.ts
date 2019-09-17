@@ -32,10 +32,10 @@ export class AppComponent {
         if(user){
           this.router.navigate(["/products"]);
         } else {
-          this.router.navigate(["/login"]);
+          this.router.navigate(["/welcome"]);
         }
       }, err => {
-        this.router.navigate(["/login"]);
+        this.router.navigate(["/welcome"]);
       }, () => {
         this.splashScreen.hide();
       })

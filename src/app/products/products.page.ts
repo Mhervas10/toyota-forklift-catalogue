@@ -33,12 +33,12 @@ export class ProductsPage implements OnInit {
     }
   }
 
-  setFilteredItems(){
+  // setFilteredItems(){
 
-    for(let i=0; i>this.products.length; i++){
-      if(this.products[i].title )
-    }
-  }
+  //   for(let i=0; i>this.products.length; i++){
+  //     if(this.products[i].title )
+  //   }
+  // }
 
   async getData(){
     const loading = await this.loadingCtrl.create({
