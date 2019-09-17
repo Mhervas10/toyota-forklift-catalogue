@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/new-task']">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Product List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="products" class="list-mini-content">
+
+    <ion-searchbar 
+    mode = "ios"
+    showCancelButton = "focus"
+    placeholder = "Encuentra tu producto" 
+    animated
+    [(ngModel)] = "searchTerm" (ionInput) = "setFilteredItems()">
+
+    </ion-searchbar>
+
+  <div *ngIf="products.length > 0" class="list-mini">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let product of products">
+        <ion-card [routerLink]="['/details', product.payload.doc.id]">
+        
+          <img [src]="product.payload.doc.data().image"/>
+          <ion-card-content>
+
+            <ion-card-title>
+              {{product.payload.doc.data().title}}
+            </ion-card-title>
+            <p>
+              {{product.payload.doc.data().description}}
+            </p>
+            <p>
+              {{product.payload.doc.data().price}} €
+            </p>
+
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col> 
+    </ion-row>
+
+  </ion-grid>
+  </div>  
+  <div *ngIf="products.length == 0" class="empty-list">
+    Please create your first product.
+  </div>
+</ion-content>
+
+
+<ion-footer (click)="logout()">
+  <ion-toolbar color="medium">
+    <ion-title>Log out</ion-title>
+  </ion-toolbar>
+</ion-footer>
+
