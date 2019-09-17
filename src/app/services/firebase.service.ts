@@ -16,22 +16,22 @@ export class FirebaseService {
     public afAuth: AngularFireAuth
   ){}
 
-  getTasks(){
+  getForklifts(){
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
         if(currentUser){
-          this.snapshotChangesSubscription = this.afs.collection('people').doc(currentUser.uid).collection('tasks').snapshotChanges();
+          this.snapshotChangesSubscription = this.afs.collection('people').doc(currentUser.uid).collection('forklifts').snapshotChanges();
           resolve(this.snapshotChangesSubscription);
         }
       })
     })
   }
 
-  getTask(taskId){
+  getForklift(forkliftId){
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
         if(currentUser){
-          this.snapshotChangesSubscription = this.afs.doc<any>('people/' + currentUser.uid + '/tasks/' + taskId).valueChanges()
+          this.snapshotChangesSubscription = this.afs.doc<any>('people/' + currentUser.uid + '/forklifts/' + forkliftId).valueChanges()
           .subscribe(snapshots => {
             resolve(snapshots);
           }, err => {
@@ -47,10 +47,10 @@ export class FirebaseService {
     this.snapshotChangesSubscription.unsubscribe();
   }
 
-  updateTask(taskKey, value){
+  updateForklift(forkliftKey, value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('tasks').doc(taskKey).set(value)
+      this.afs.collection('people').doc(currentUser.uid).collection('forklifts').doc(forkliftKey).set(value)
       .then(
         res => resolve(res),
         err => reject(err)
@@ -58,10 +58,10 @@ export class FirebaseService {
     })
   }
 
-  deleteTask(taskKey){
+  deleteForklift(forkliftKey){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('tasks').doc(taskKey).delete()
+      this.afs.collection('people').doc(currentUser.uid).collection('forklifts').doc(forkliftKey).delete()
       .then(
         res => resolve(res),
         err => reject(err)
@@ -69,10 +69,10 @@ export class FirebaseService {
     })
   }
 
-  createTask(value){
+  createForklift(value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('tasks').add({
+      this.afs.collection('people').doc(currentUser.uid).collection('forklifts').add({
         title: value.title,
         description: value.description,
         image: value.image,
