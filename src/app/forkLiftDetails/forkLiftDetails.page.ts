@@ -24,7 +24,7 @@ export class ForkLiftDetailsPage implements OnInit {
   gradeabilityWithLoad: any;
   gradeabilityWithoutLoad: any;
   driveMotorRating: any;
-  consume: any;
+  voltage: any;
 
   constructor(
     private imagePicker: ImagePicker,
@@ -54,7 +54,7 @@ export class ForkLiftDetailsPage implements OnInit {
       this.gradeabilityWithLoad = this.item.gradeabilityWithLoad;
       this.gradeabilityWithoutLoad= this.item.gradeabilityWithoutLoad;
       this.driveMotorRating = this.item.driveMotorRating;
-      this.consume = this.item.consume;
+      this.voltage = this.item.voltage;
       this.price = this.item.price;
      }
     })
