@@ -8,5 +8,5 @@ export class Product {
     gradeabilityWithoutLoad: string;
     price: number;
     driveMotorRating: string;
-    consume: string;
+    voltage: string;
 }

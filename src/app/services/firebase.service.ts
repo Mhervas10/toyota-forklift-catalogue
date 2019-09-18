@@ -79,8 +79,8 @@ export class FirebaseService {
         gradeabilityWithLoad: value.gradeabilityWithLoad,
         gradeabilityWithoutLoad: value.gradeabilityWithoutLoad,
         driveMotorRating: value.driveMotorRating,
-        consume: value.consume,
-        price: value.price,
+        voltage: value.voltage,
+        price: value.price
       })
       .then(
         res => resolve(res),
