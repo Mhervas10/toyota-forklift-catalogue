@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="products"></ion-back-button>
+    </ion-buttons>
+    <ion-title>ForkLift Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-row>
+      <ion-col size="6" offset="3">
+        <img [src]="image" alt="this is the image"/>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col size="6" offset="3">
+        <ion-button fill="outline" expand="block" size="small" (click)="openImagePicker()">Change Picture</ion-button>
+      </ion-col>
+    </ion-row> -->
+  </div>
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+
+    <ion-item>
+
+      <ion-label position="floating" color="primary">Model</ion-label>
+
+      {{model}}
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label position="floating" color="primary">Load Capacity</ion-label>
+      
+      <br>
+      
+      {{loadCapacity}}
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label position="floating" color="primary">Aisle width for pallets 800cm X 1200cm </ion-label>
+
+      <br>
+      
+      {{aisleWidthForPallets}}
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label position="floating" color="primary">Gradeability with Load</ion-label>
+
+      <br>
+
+      {{gradeabilityWithLoad}}
+
+    </ion-item>
+
+
+    <ion-item>
+
+      <ion-label position="floating" color="primary">Gradeability without Load</ion-label>
+
+      <br>
+
+      {{gradeabilityWithoutLoad}}
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label position="floating" color="primary">Drive motor ratong S2 60min</ion-label>
+
+      <br>
+
+      {{driveMotorRating}}
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label position="floating" color="primary">Voltage</ion-label>
+
+      <br>
+
+      {{voltage}} 
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label position="floating" color="primary">Price</ion-label>
+
+      <br>
+
+      {{price}} €
+
+    </ion-item>
+
+
+
+
+
+  <!-- <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button> -->
+
+  <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button>
+
+  <ion-button class="submit-button" expand="block" color="danger" type="submit" ><ion-icon ios="ios-heart" md="md-heart"></ion-icon></ion-button>
+  
+  
+  <ion-button class="delete-button" expand="block" color="primary" type="submit" ><ion-icon ios="ios-cart" md="md-cart"></ion-icon></ion-button>
+  
+
+  </form>
+</ion-content>

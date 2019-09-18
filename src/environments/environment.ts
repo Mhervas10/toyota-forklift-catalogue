@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase : {
-    apiKey: "AIzaSyDQkjPLR-uxVhM0-R-Cgj9-an8jpi3TcXc",
-    authDomain: "wakapop-victor.firebaseapp.com",
-    databaseURL: "https://wakapop-victor.firebaseio.com",
-    projectId: "wakapop-victor",
-    storageBucket: "wakapop-victor.appspot.com",
-    messagingSenderId: "635035922998",
-    appId: "1:635035922998:web:6cb15388647a897a3ede97"
+    apiKey: "AIzaSyBkNzb8rElLm8luWKVuPsD0Y7GsiYkCynk",
+    authDomain: "toyota-s-forklift-handing.firebaseapp.com",
+    databaseURL: "https://toyota-s-forklift-handing.firebaseio.com",
+    projectId: "toyota-s-forklift-handing",
+    storageBucket: "",
+    messagingSenderId: "427138987848",
+    appId: "1:427138987848:web:cf0165bcda1fd589b3a57d"
   }
 };
 

@@ -1,10 +1,12 @@
 export class Product {
     id: number;
-    title: string;
-    description: string;
+    model: string;
+    loadcapacity: string;
     image: string;
-    category: string;
-    publishedDate: Date;
-    state: string;
+    aisleWidthForPallets: string;
+    gradeabilityWithLoad: Date;
+    gradeabilityWithoutLoad: string;
     price: number;
+    driveMotorRating: string;
+    voltage: string;
 }

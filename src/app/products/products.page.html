@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="end">
-      <ion-button [routerLink]="['/new-task']">
+      <ion-button [routerLink]="['/new-forklift']">
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -24,16 +24,16 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let product of products">
-        <ion-card [routerLink]="['/details', product.payload.doc.id]">
+        <ion-card [routerLink]="['/forkLiftDetails', product.payload.doc.id]">
         
           <img [src]="product.payload.doc.data().image"/>
           <ion-card-content>
 
             <ion-card-title>
-              {{product.payload.doc.data().title}}
+              {{product.payload.doc.data().model}}
             </ion-card-title>
             <p>
-              {{product.payload.doc.data().description}}
+              {{product.payload.doc.data().loadCapacity}}
             </p>
             <p>
               {{product.payload.doc.data().price}} €

@@ -5,11 +5,10 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-  { path: 'details/:id', loadChildren: './details/details.module#DetailsPageModule' },
+  { path: 'forkLiftDetails/:id', loadChildren: './forkLiftDetails/forkLiftDetails.module#ForkLiftDetailsPageModule' },
   { path: 'products', loadChildren: './products/products.module#ProductsPageModule' },
-  { path: 'new-task', loadChildren: './new-task/new-task.module#NewTaskPageModule' },
-  { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
-  // { path: 'new-task-modal', loadChildren: './new-task-modal/new-task-modal.module#NewTaskModalPageModule' },
+  { path: 'new-forklift', loadChildren: './new-forklift/new-forklift.module#NewForkliftPageModule' },
+  // { path: 'new-forklift-modal', loadChildren: './new-forklift-modal/new-forklift-modal.module#NewForkliftModalPageModule' },
 ];
 
 @NgModule({

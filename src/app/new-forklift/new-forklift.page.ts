@@ -9,11 +9,11 @@ import { formatDate } from '@angular/common';
 
 
 @Component({
-  selector: 'app-new-task',
-  templateUrl: './new-task.page.html',
-  styleUrls: ['./new-task.page.scss'],
+  selector: 'app-new-forklift',
+  templateUrl: './new-forklift.page.html',
+  styleUrls: ['./new-forklift.page.scss'],
 })
-export class NewTaskPage implements OnInit {
+export class NewForkliftPage implements OnInit {
 
   validations_form: FormGroup;
   image: any;
@@ -34,11 +34,14 @@ export class NewTaskPage implements OnInit {
 
   resetFields(){
     this.validations_form = this.formBuilder.group({
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
-      category: new FormControl('', Validators.required),
-      price: new FormControl('', Validators.required),
-      state: new FormControl('', Validators.required),  
+      model: new FormControl('', Validators.required),
+      loadCapacity: new FormControl('', Validators.required),
+      aisleWidthForPallets: new FormControl('', Validators.required),
+      gradeabilityWithLoad: new FormControl('', Validators.required),
+      gradeabilityWithoutLoad: new FormControl('', Validators.required),
+      driveMotorRating: new FormControl('', Validators.required),
+      voltage: new FormControl('', Validators.required),
+      price: new FormControl('', Validators.required),   
     });
   }
 
@@ -48,20 +51,20 @@ export class NewTaskPage implements OnInit {
 
     let  formattedDate = formatDate(date, 'short', 'en-US');
 
-    let image = `.assets/imgs/${value.title}.jpg`
+    let image = `.assets/imgs/${value.model}.jpg`
   
 
     let data = {
-      title: value.title,
-      description: value.description,
-      image: image,
-      category: value.category,
+      model: value.model,
+      loadCapacity: value.loadCapacity,
+      aisleWidthForPallets: value.aisleWidthForPallets,
+      gradeabilityWithLoad: value.gradeabilityWithLoad,
+      gradeabilityWithoutLoad: value.gradeabilityWithoutLoad,
+      driveMotorRating: value.driveMotorRating,
+      voltage: value.voltage,
       price: value.price,
-      state: value.state,
-      publishedDate: formattedDate,
-
     }
-    this.firebaseService.createTask(data)
+    this.firebaseService.createForklift(data)
     .then(
       res => {
         this.router.navigate(["/products"]);
