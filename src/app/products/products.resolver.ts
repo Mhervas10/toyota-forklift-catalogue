@@ -8,6 +8,6 @@ export class ProductsResolver implements Resolve<any> {
   constructor(private firebaseService: FirebaseService) {}
 
   resolve() {
-    return this.firebaseService.getTasks();
+    return this.firebaseService.getForklifts();
   }
 }

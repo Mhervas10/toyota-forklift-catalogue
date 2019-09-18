@@ -70,7 +70,7 @@ export class ForkLiftDetailsPage implements OnInit {
       description: value.description,
       image: this.image
     }
-    this.firebaseService.updateTask(this.item.id,data)
+    this.firebaseService.updateForklift(this.item.id,data)
     .then(
       res => {
         this.router.navigate(["/products"]);
@@ -92,7 +92,7 @@ export class ForkLiftDetailsPage implements OnInit {
         {
           text: 'Yes',
           handler: () => {
-            this.firebaseService.deleteTask(this.item.id)
+            this.firebaseService.deleteForklift(this.item.id)
             .then(
               res => {
                 this.router.navigate(["/products"]);
