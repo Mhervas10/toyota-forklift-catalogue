@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase : {
-    apiKey: "AIzaSyD-PLBU1Bjow0bJ2FpFxRIVQ2APNtLdv8g",
-    authDomain: "toyota-s-forklift.firebaseapp.com",
-    databaseURL: "https://toyota-s-forklift.firebaseio.com",
-    projectId: "toyota-s-forklift",
-    storageBucket: "",
-    messagingSenderId: "258451436336",
-    appId: "1:258451436336:web:06d1a0ed427a4b107e4ef5"
+    apiKey: "AIzaSyD_eQ19f-tMI-8AaC9XMfadCRYwA6wv-IY",
+    authDomain: "toyota-froklift.firebaseapp.com",
+    databaseURL: "https://toyota-froklift.firebaseio.com",
+    projectId: "toyota-froklift",
+    storageBucket: "toyota-froklift.appspot.com",
+    messagingSenderId: "1046991194433",
+    appId: "1:1046991194433:web:5426646af1a6b58d50f9c0"
   }
 };
 
