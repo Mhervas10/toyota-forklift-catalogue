@@ -40,7 +40,7 @@ export class NewForkliftPage implements OnInit {
       gradeabilityWithLoad: new FormControl('', Validators.required),
       gradeabilityWithoutLoad: new FormControl('', Validators.required),
       driveMotorRating: new FormControl('', Validators.required),
-      consume: new FormControl('', Validators.required),
+      voltage: new FormControl('', Validators.required),
       price: new FormControl('', Validators.required),   
     });
   }
@@ -61,7 +61,7 @@ export class NewForkliftPage implements OnInit {
       gradeabilityWithLoad: value.gradeabilityWithLoad,
       gradeabilityWithoutLoad: value.gradeabilityWithoutLoad,
       driveMotorRating: value.driveMotorRating,
-      consume: value.consume,
+      voltage: value.voltage,
       price: value.price,
     }
     this.firebaseService.createForklift(data)
