@@ -7,22 +7,24 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.page.html',
-  styleUrls: ['./details.page.scss'],
+  selector: 'app-forkLiftDetails',
+  templateUrl: './forkLiftDetails.page.html',
+  styleUrls: ['./forkLiftDetails.page.scss'],
 })
-export class DetailsPage implements OnInit {
+export class ForkLiftDetailsPage implements OnInit {
 
   validations_form: FormGroup;
   image: any;
   item: any;
   load: boolean = false;
-  title: any;
-  description: any;
-  category: any;
   price: any;
-  state: any;
-  publishedDate: any;
+  model: any;
+  loadCapacity: any;
+  aisleWidthForPallets: any;
+  gradeabilityWithLoad: any;
+  gradeabilityWithoutLoad: any;
+  driveMotorRating: any;
+  consume: any;
 
   constructor(
     private imagePicker: ImagePicker,
@@ -44,23 +46,22 @@ export class DetailsPage implements OnInit {
     this.route.data.subscribe(routeData => {
      let data = routeData['data'];
      if (data) {
-       this.item = data;
-       this.image = this.item.image;
-       this.title = this.item.title;
-       this.description = this.item.description
-       this.category = this.item.category;
-       this.price = this.item.price;
-       this.state = this.item.state;
-       this.publishedDate = this.item.publishedDate;
+      this.item = data;
+      this.image = this.item.image;
+      this.model= this.item.model;
+      this.loadCapacity = this.item.loadCapacity;
+      this.aisleWidthForPallets = this.item.aisleWidthForPallets;
+      this.gradeabilityWithLoad = this.item.gradeabilityWithLoad;
+      this.gradeabilityWithoutLoad= this.item.gradeabilityWithoutLoad;
+      this.driveMotorRating = this.item.driveMotorRating;
+      this.consume = this.item.consume;
+      this.price = this.item.price;
      }
     })
-    this.validations_form = this.formBuilder.group({
-      title: new FormControl(this.item.title, Validators.required),
-      description: new FormControl(this.item.description, Validators.required),
-      category: new FormControl(this.item. category, Validators.required),
-      price: new FormControl(this.item. price, Validators.required),
-      state: new FormControl(this.item.state, Validators.required),
-    });
+    // this.validations_form = this.formBuilder.group({
+    //   model: new FormControl(this.item.model, Validators.required),
+
+    // });
   }
 
   onSubmit(value){

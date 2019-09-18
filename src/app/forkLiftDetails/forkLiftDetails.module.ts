@@ -5,15 +5,15 @@ import { Routes, RouterModule} from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DetailsPage } from './details.page';
-import { DetailsResolver } from './details.resolver';
+import { ForkLiftDetailsPage } from './forkLiftDetails.page';
+import { ForkLiftDetailsResolver } from './forkLiftDetails.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: DetailsPage,
+    component: ForkLiftDetailsPage,
     resolve: {
-      data: DetailsResolver
+      data:  ForkLiftDetailsResolver
     }
   }
 ];
@@ -26,7 +26,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DetailsPage],
-  providers:[DetailsResolver]
+  declarations: [ForkLiftDetailsPage],
+  providers:[ ForkLiftDetailsResolver]
 })
-export class DetailsPageModule {}
+export class ForkLiftDetailsPageModule {}
