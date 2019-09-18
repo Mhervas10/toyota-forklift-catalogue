@@ -11,9 +11,33 @@
 
 .submit-btn
 {
-  margin-top: 40px;
+  margin-top: 1rem;
+  color:white;
 }
 
-.form {
-  margin-top: 40vh;
+// .form {
+//   margin-top: 2rem;
+// }
+
+img{
+  max-height: 50%;
+  max-width: 100%;
+  margin: 3rem auto;
+}
+
+.go-to-register {
+  color:white;
+  a{
+    color: #b10000;
+    font-weight: bold;
+  }
+}
+
+ion-input{
+  color:white;
+}
+
+.error-message{
+  padding: 1rem;
+  font-size: 0.8rem;
 }
