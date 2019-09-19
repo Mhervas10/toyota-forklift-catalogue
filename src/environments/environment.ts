@@ -9,7 +9,7 @@ export const environment = {
     authDomain: "toyota-s-forklift-handing.firebaseapp.com",
     databaseURL: "https://toyota-s-forklift-handing.firebaseio.com",
     projectId: "toyota-s-forklift-handing",
-    storageBucket: "",
+    storageBucket: "toyota-s-forklift-handing.appspot.com",
     messagingSenderId: "427138987848",
     appId: "1:427138987848:web:cf0165bcda1fd589b3a57d"
   }
