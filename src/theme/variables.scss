@@ -44,7 +44,7 @@
   --ion-color-warning-tint: #ffd31a;
 
   /** danger **/
-  --ion-color-danger: #f04141;
+  --ion-color-danger: #b10000;
   --ion-color-danger-rgb: 245, 61, 61;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
@@ -75,3 +75,18 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+.welcome-page-styles {
+  --ion-background-color:#111D12;
+  --background: url('../assets/imgs/fondo-login.jpg');
+}
+
+.form-content {
+  --ion-background-color: #f3f3f3;
+  --background: url('../assets/imgs/fondo-login.jpg');
+}
+
+.login-register-inputs {
+  --ion-background-color:rgba(0, 0, 0, 0);
+}
+

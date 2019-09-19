@@ -1,14 +1,15 @@
-<ion-header>
-  <ion-toolbar color="primary">
+<!-- <ion-header>
+  <ion-toolbar color="danger">
     <ion-title>Register</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content padding class="form-content">
+<ion-content padding class="form-content fondo-prueba">
+  <img src="../assets/imgs/toyota-emblem.svg"/>
   <form class="form" [formGroup]="validations_form" (ngSubmit)="tryRegister(validations_form.value)">
 
-    <ion-item>
-      <ion-label position="floating" color="primary">Email</ion-label>
+    <ion-item class="login-register-inputs">
+      <ion-label position="floating" color="danger">Email</ion-label>
       <ion-input type="text" formControlName="email"></ion-input>
     </ion-item>
     <div class="validation-errors">
@@ -19,8 +20,8 @@
       </ng-container>
     </div>
 
-    <ion-item>
-      <ion-label position="floating" color="primary">Password</ion-label>
+    <ion-item class="login-register-inputs">
+      <ion-label position="floating" color="danger">Password</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
     <div class="validation-errors">
@@ -31,7 +32,7 @@
       </ng-container>
     </div>
 
-    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Register</ion-button>
+    <ion-button class="submit-btn" size="medium" expand="block" type="submit"  color="danger" [disabled]="!validations_form.valid">Register</ion-button>
     <label class="error-message">{{errorMessage}}</label>
     <label class="success-message">{{successMessage}}</label>
   </form>
