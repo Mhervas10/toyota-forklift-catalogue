@@ -5,20 +5,11 @@
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>ForkLisft List</ion-title>
+    <ion-title>ForkLift List</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="products" class="list-mini-content">
-
-    <ion-searchbar 
-    mode = "ios"
-    showCancelButton = "focus"
-    placeholder = "Encuentra tu producto" 
-    animated
-    [(ngModel)] = "searchTerm" (ionInput) = "setFilteredItems()">
-
-    </ion-searchbar>
 
   <div *ngIf="products.length > 0" class="list-mini">
   <ion-grid>
@@ -50,12 +41,25 @@
   <div *ngIf="products.length == 0" class="empty-list">
     Please create your first product.
   </div>
+
 </ion-content>
 
+<ion-bottom-drawer [(state)]="drawerState" [minimumHeight]="minimumHeight" [dockedHeight]="dockedHeight" [shouldBounce]="shouldBounce"
+ [distanceTop]="distanceTop">
+	<div class="drawer-content">
+		Bottom Drawer Content
+	</div>
+</ion-bottom-drawer>
 
 <ion-footer (click)="logout()">
   <ion-toolbar color="medium">
     <ion-title>Log out</ion-title>
   </ion-toolbar>
 </ion-footer>
+
+
+
+
+
+
 

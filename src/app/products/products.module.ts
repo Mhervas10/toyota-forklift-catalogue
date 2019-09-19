@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProductsPage } from './products.page';
 import { ProductsResolver } from './products.resolver';
+import { IonBottomDrawerModule } from 'ion-bottom-drawer';
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    IonBottomDrawerModule
   ],
   declarations: [ProductsPage],
   providers: [
