@@ -47,6 +47,35 @@
 
   </ion-grid>
   </div>  
+
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let forklift of forkliftList">
+          <ion-card>
+          
+            <img [src]=""/>
+            <ion-card-content>
+  
+              <ion-card-title>
+                {{forklift.model}}
+              </ion-card-title>
+              <p>
+                {{forklift.loadCapacity}} Kg.
+              </p>
+              <p>
+                {{forklift.price}} €.
+              </p>
+  
+  
+            </ion-card-content>
+          </ion-card>
+        </ion-col> 
+      </ion-row>
+  
+    </ion-grid>
+    </div>  
+
   <div *ngIf="products.length == 0" class="empty-list">
     Please add new ForkLift.
   </div>
