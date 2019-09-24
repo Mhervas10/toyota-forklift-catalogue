@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
-import { DrawerState } from 'ion-bottom-drawer';
 import { Product } from '../models/products'
+import { MenuController } from '@ionic/angular';
 
 
 
@@ -22,12 +22,7 @@ export class ProductsPage implements OnInit {
     upper:0,
     lower:200
   }
-  shouldBounce = true;
-  dockedHeight = 150;
-  distanceTop = 56;
-  drawerState = DrawerState.Docked;
-  states = DrawerState;
-  minimumHeight = 100;
+ 
 
 
   constructor(
@@ -35,6 +30,7 @@ export class ProductsPage implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
+    private menuCtrl: MenuController,
     
   ) { }
 

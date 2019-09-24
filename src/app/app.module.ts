@@ -19,12 +19,13 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IonBottomDrawerModule } from 'ion-bottom-drawer';
+import { MenuComponent } from './menu/menu.component';
+
 // import { NewForkliftModalPage } from './new-forklift-modal/new-forklift-modal.page';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MenuComponent, ],
   // declarations: [AppComponent, NewForkliftModalPage],
   // entryComponents: [NewForkliftModalPage],
   imports: [
@@ -37,8 +38,11 @@ import { IonBottomDrawerModule } from 'ion-bottom-drawer';
     AngularFirestoreModule, // imports firebase/firestore
     AngularFireAuthModule, // imports firebase/auth
     AngularFireStorageModule, // imports firebase/storage
-    IonBottomDrawerModule,
 
+
+  ],
+  exports: [
+    MenuComponent
   ],
   providers: [
     StatusBar,

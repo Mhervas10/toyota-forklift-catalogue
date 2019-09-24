@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="end">
+       <ion-buttons slot="end">
       <ion-button [routerLink]="['/new-forklift']">
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
+
     </ion-buttons>
     <ion-title>ForkLift List</ion-title>
   </ion-toolbar>
@@ -42,23 +43,19 @@
     Please create your first product.
   </div>
 
+
 </ion-content>
-
-<ion-bottom-drawer [(state)]="drawerState" [minimumHeight]="minimumHeight" [dockedHeight]="dockedHeight" [shouldBounce]="shouldBounce"
- [distanceTop]="distanceTop">
-	<div class="drawer-content">
-		Bottom Drawer Content
-	</div>
-</ion-bottom-drawer>
-
-<ion-footer (click)="logout()">
+ 
+<ion-footer >
   <ion-toolbar color="medium">
-    <ion-title>Log out</ion-title>
+      <ion-buttons slot="end">
+          <ion-menu-button color="light"
+                            menu="first">
+          </ion-menu-button> 
+        </ion-buttons>
+    <ion-title (click)="logout()">Log out</ion-title>
   </ion-toolbar>
 </ion-footer>
-
-
-
 
 
 
