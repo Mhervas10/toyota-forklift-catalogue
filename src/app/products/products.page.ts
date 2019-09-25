@@ -3,7 +3,11 @@ import { AuthService } from '../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Product } from '../models/products'
+import { Product } from '../_interfaces/product.interface';
+
+import FORKLIFTS from './../../assets/data/forklifts.json';
+
+
 
 @Component({
   selector: 'app-products',
@@ -11,6 +15,9 @@ import { Product } from '../models/products'
   styleUrls: ['./products.page.scss'],
 })
 export class ProductsPage implements OnInit {
+
+
+  forkliftList = FORKLIFTS ;
 
   products: Product[];
   searchTerm: string = "";
@@ -28,6 +35,9 @@ export class ProductsPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.forkliftList = FORKLIFTS as any;
+
+
     if (this.route && this.route.data) {
       this.getData();
     }

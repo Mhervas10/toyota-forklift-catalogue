@@ -52,13 +52,14 @@
     <ion-grid>
       <ion-row>
         <ion-col size="6" *ngFor="let forklift of forkliftList">
-          <ion-card>
+            <ion-card [routerLink]="['/forkLiftDetails', forklift.id]">
           
-            <img [src]=""/>
+          
+            <img src="../../assets/imgs/{{forklift.model}}.jpg"/>
             <ion-card-content>
   
               <ion-card-title>
-                {{forklift.model}}
+                {{forklift.model | uppercase}}
               </ion-card-title>
               <p>
                 {{forklift.loadCapacity}} Kg.
