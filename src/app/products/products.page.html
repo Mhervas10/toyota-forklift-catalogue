@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
        <ion-buttons slot="end">
-          <ion-button [routerLink]="['/favouritesForkLift']">
+          <ion-button [routerLink]="['/favoritesForkLift']">
             <ion-icon ios="ios-heart" md="md-heart" color="danger"></ion-icon>
           </ion-button>
       <ion-button [routerLink]="['/new-forklift']">
@@ -19,7 +19,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let product of products">
-        <ion-card [routerLink]="['/forkLiftDetails', product.payload.doc.id]">
+        <ion-card [routerLink]="['/forkLiftDetails', product.payload.doc.id]" class="post">
         
           <img [src]="product.payload.doc.data().image"/>
           <ion-card-content>
@@ -34,8 +34,10 @@
               {{product.payload.doc.data().price}} €.
             </p>
 
-
           </ion-card-content>
+          
+          <ion-button color="light" (click)="addFavorite()"><ion-icon name="heart" color="medium"></ion-icon></ion-button>
+        
         </ion-card>
       </ion-col> 
     </ion-row>

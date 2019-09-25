@@ -1,4 +1,4 @@
-export class FavouritesForkLift {
+export class FavoritesForkLift {
     id: number;
     model: string;
     loadcapacity: string;
