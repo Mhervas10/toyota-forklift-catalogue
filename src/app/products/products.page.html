@@ -25,10 +25,10 @@
               {{product.payload.doc.data().model}}
             </ion-card-title>
             <p>
-              {{product.payload.doc.data().loadCapacity}}
+              {{product.payload.doc.data().loadCapacity}} Kg.
             </p>
             <p>
-              {{product.payload.doc.data().price}} €
+              {{product.payload.doc.data().price}} €.
             </p>
 
 
@@ -40,7 +40,7 @@
   </ion-grid>
   </div>  
   <div *ngIf="products.length == 0" class="empty-list">
-    Please create your first product.
+    Please add new ForkLift.
   </div>
 
 
@@ -48,12 +48,7 @@
  
 <ion-footer >
   <ion-toolbar color="medium">
-      <ion-buttons slot="end">
-          <ion-menu-button color="light"
-                            menu="first">
-          </ion-menu-button> 
-        </ion-buttons>
-    <ion-title (click)="logout()">Log out</ion-title>
+    <ion-title>Log out, see you again!</ion-title>
   </ion-toolbar>
 </ion-footer>
 
