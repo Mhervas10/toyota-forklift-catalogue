@@ -12,7 +12,7 @@
   <div *ngIf="products.length > 0" class="list-mini">
       <ion-list>
 
-          <ion-item *ngFor="let product of products">
+          <ion-item *ngFor="let favorite of favorites">
     
             <ion-avatar slot="start" [routerLink]="['/forkLiftDetails', product.payload.doc.id]">
     
@@ -31,6 +31,10 @@
             </ion-label>
     
           </ion-item>
+
+          <ion-item-options>
+            <button danger (click)="deleteItem(favorite)">Delete</button>
+          </ion-item-options>
           
         </ion-list>
     
