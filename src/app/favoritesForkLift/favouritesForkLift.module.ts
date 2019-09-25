@@ -5,16 +5,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FavouritesForkLiftPage } from './favouritesForkLift.page';
-import { FavouritesForkLiftResolver } from './favouritesForkLift.resolver';
+import { FavoritesForkLiftPage } from './favoritesForkLift.page';
+import { FavoritesForkLiftResolver } from './favoritesForkLift.resolver';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: FavouritesForkLiftPage,
+    component: FavoritesForkLiftPage,
     resolve: {
-      data: FavouritesForkLiftResolver
+      data: FavoritesForkLiftResolver
     }
   }
 ];
@@ -28,9 +28,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
 
   ],
-  declarations: [FavouritesForkLiftPage],
+  declarations: [FavoritesForkLiftPage],
   providers: [
-    FavouritesForkLiftResolver
+    FavoritesForkLiftResolver
   ]
 })
-export class FavouritesForkLiftPageModule {}
+export class FavoritesForkLiftPageModule {}

@@ -8,11 +8,11 @@ import { MenuController } from '@ionic/angular';
 
 
 @Component({
-  selector: 'app-favouritesForkLift',
-  templateUrl: './favouritesForkLift.page.html',
-  styleUrls: ['./favouritesForkLift.page.scss'],
+  selector: 'app-favoritesForkLift',
+  templateUrl: './favoritesForkLift.page.html',
+  styleUrls: ['./favoritesForkLift.page.scss'],
 })
-export class FavouritesForkLiftPage implements OnInit {
+export class FavoritesForkLiftPage implements OnInit {
 
   
   products: Product[];
