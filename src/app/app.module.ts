@@ -38,7 +38,7 @@ import { MenuComponent } from './menu/menu.component';
     AngularFirestoreModule, // imports firebase/firestore
     AngularFireAuthModule, // imports firebase/auth
     AngularFireStorageModule, // imports firebase/storage
-
+   
 
   ],
   exports: [

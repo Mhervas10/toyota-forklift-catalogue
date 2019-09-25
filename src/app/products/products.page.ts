@@ -9,6 +9,8 @@ import FORKLIFTS from './../../assets/data/forklifts.json';
 
 import { MenuController } from '@ionic/angular';
 
+
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.page.html',
@@ -25,8 +27,8 @@ export class ProductsPage implements OnInit {
     upper:0,
     lower:200
   }
- 
-
+ busqueda = "";
+items:any;
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -39,7 +41,7 @@ export class ProductsPage implements OnInit {
 
   ngOnInit() {
     this.forkliftList = FORKLIFTS as any;
-
+this.initializaedItems();
 
     if (this.route && this.route.data) {
       this.getData();
@@ -70,6 +72,23 @@ export class ProductsPage implements OnInit {
   async presentLoading(loading) {
     return await loading.present();
   }
+
+initializaedItems(){
+  this.items = this.forkliftList;
+}
+
+getItems (ev:any){
+  this.initializaedItems();
+  let val = ev.target.value;
+  if (val && val.trim() != ''){
+    this.items = this.items.filter((item) => {
+      return (item.model.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    })
+  }
+}
+
+
+
 
   logout(){
     this.authService.doLogout()
