@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProductsPage } from './products.page';
 import { ProductsResolver } from './products.resolver';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -24,7 +25,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+
   ],
   declarations: [ProductsPage],
   providers: [

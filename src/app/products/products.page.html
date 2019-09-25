@@ -1,24 +1,16 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="end">
+       <ion-buttons slot="end">
       <ion-button [routerLink]="['/new-forklift']">
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
+
     </ion-buttons>
-    <ion-title>ForkLisft List</ion-title>
+    <ion-title>ForkLift List</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="products" class="list-mini-content">
-
-    <ion-searchbar 
-    mode = "ios"
-    showCancelButton = "focus"
-    placeholder = "Encuentra tu producto" 
-    animated
-    [(ngModel)] = "searchTerm" (ionInput) = "setFilteredItems()">
-
-    </ion-searchbar>
 
   <div *ngIf="products.length > 0" class="list-mini">
   <ion-grid>
@@ -50,12 +42,16 @@
   <div *ngIf="products.length == 0" class="empty-list">
     Please add new ForkLift.
   </div>
+
+
 </ion-content>
-
-
-<ion-footer (click)="logout()">
+ 
+<ion-footer >
   <ion-toolbar color="medium">
     <ion-title>Log out, see you again!</ion-title>
   </ion-toolbar>
 </ion-footer>
+
+
+
 
