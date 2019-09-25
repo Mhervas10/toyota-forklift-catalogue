@@ -7,7 +7,7 @@ import { Product } from '../_interfaces/product.interface';
 
 import FORKLIFTS from './../../assets/data/forklifts.json';
 
-
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-products',
@@ -15,7 +15,6 @@ import FORKLIFTS from './../../assets/data/forklifts.json';
   styleUrls: ['./products.page.scss'],
 })
 export class ProductsPage implements OnInit {
-
 
   forkliftList = FORKLIFTS ;
 
@@ -26,12 +25,16 @@ export class ProductsPage implements OnInit {
     upper:0,
     lower:200
   }
+ 
+
 
   constructor(
     public loadingCtrl: LoadingController,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private menuCtrl: MenuController,
+    
   ) { }
 
   ngOnInit() {

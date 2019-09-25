@@ -51,7 +51,7 @@ export class NewForkliftPage implements OnInit {
 
     let  formattedDate = formatDate(date, 'short', 'en-US');
 
-    let image = `assets/imgs/${value.model}.jpg`
+    let image = `.assets/imgs/${value.model}.jpg`
   
 
     let data = {
