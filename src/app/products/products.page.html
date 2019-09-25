@@ -11,51 +11,92 @@
 
 <ion-content *ngIf="products" class="list-mini-content">
 
-    <ion-searchbar 
-    mode = "ios"
-    showCancelButton = "focus"
-    placeholder = "Encuentra tu producto" 
-    animated
-    [(ngModel)] = "searchTerm" (ionInput) = "setFilteredItems()">
+  <ion-searchbar mode="ios" showCancelButton="focus" placeholder="Encuentra tu producto" cancelButtonText="Cancelar"
+    animated [(ngModel)]="searchTerm" (ionChange)="setFilteredItems()">
 
-    </ion-searchbar>
+  </ion-searchbar>
 
   <div *ngIf="products.length > 0" class="list-mini">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6" *ngFor="let product of products">
-        <ion-card [routerLink]="['/forkLiftDetails', product.payload.doc.id]">
-        
-          <img [src]="product.payload.doc.data().image"/>
-          <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let product of products">
+          <ion-card [routerLink]="['/forkLiftDetails', product.payload.doc.id]">
 
-            <ion-card-title>
-              {{product.payload.doc.data().model}}
-            </ion-card-title>
-            <p>
-              {{product.payload.doc.data().loadCapacity}}
-            </p>
-            <p>
-              {{product.payload.doc.data().price}} €
-            </p>
+            <img [src]="product.payload.doc.data().image" />
+            <ion-card-content>
+
+              <ion-card-title>
+                {{product.payload.doc.data().model}}
+              </ion-card-title>
+              <p>
+                {{product.payload.doc.data().loadCapacity}}
+              </p>
+              <p>
+                {{product.payload.doc.data().price}} €
+              </p>
 
 
-          </ion-card-content>
-        </ion-card>
-      </ion-col> 
-    </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
 
-  </ion-grid>
-  </div>  
+    </ion-grid>
+  </div>
   <div *ngIf="products.length == 0" class="empty-list">
     Please create your first product.
   </div>
 </ion-content>
 
+<!-- LISTA DE PRODUCTOS -->
+
+<ion-grid *ngIf="products.length > 0 && searchTerm == ''" align-items-start>
+  <ion-row>
+    <ion-col size="6" *ngFor="let product of products">
+      <ion-card [routerLink]="['/details', product.payload.doc.id]" [ngClass]="{'background-gray': product.payload.doc.data().state == 'sold',
+      'background-red': product.payload.doc.data().state == 'cancelled'}">
+        <img [src]="product.payload.doc.data().image" onError="this.src='./assets/imgs/default_image.jpg';">
+        <ion-card-header>
+          <ion-card-subtitle>
+            {{product.payload.doc.data().loadCapacity}}
+          </ion-card-subtitle>
+          <ion-card-title class="ion-card-custom-title">
+            {{product.payload.doc.data().model}}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="product-price">
+          {{product.payload.doc.data().price}} €
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!-- RESULTADOS DE BÚSQUEDA -->
+
+ <ion-grid *ngIf="products.length > 0 && searchTerm != '' && filteredItems.length >0" align-items-start>
+  <ion-row>
+    <ion-col size="6" *ngFor="let product of filteredItems">
+      <ion-card [routerLink]="['/details', product.payload.doc.id]" [ngClass]="{'background-gray': product.payload.doc.data().state == 'sold',
+      'background-red': product.payload.doc.data().image}" onError="this.src='./assets/imgs/default_image.jpg';">
+        <ion-card-header>
+          <ion-card-subtitle>
+            {{product.payload.doc.data().loadCapacity}}
+          </ion-card-subtitle>
+          <ion-card-title class="ion-card-custom-title">
+            {{product.payload.doc.data().model}}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="product-price">
+          {{product.payload.doc.data().price}} €
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid> 
 
 <ion-footer (click)="logout()">
   <ion-toolbar color="medium">
     <ion-title>Log out</ion-title>
   </ion-toolbar>
 </ion-footer>
-
