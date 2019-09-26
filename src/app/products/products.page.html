@@ -74,8 +74,9 @@
   <div *ngIf="forkliftList.length > 0 else noData">
       <ion-grid>
         <ion-row>
-          <ion-col size="6" *ngFor="let forklift of items  ">
-            <ion-card [routerLink]="['/forkLiftDetails', forklift.id]">
+          <ion-col size="6" *ngFor="let forklift of items">
+
+            <ion-card [routerLink]="['/forkLiftDetails']">
   
   
               <img src="../../assets/imgs/{{forklift.model}}.jpg" />
@@ -93,6 +94,11 @@
   
   
               </ion-card-content>
+
+              <ion-button color="light" (click)="addFavorite()">
+                  <ion-icon name="heart" color="medium"></ion-icon>
+              </ion-button>
+
             </ion-card>
           </ion-col>
         </ion-row>
@@ -121,7 +127,7 @@
       </ion-buttons>
 
       <ion-title (click)="logout()">Log out</ion-title>
-      
+
     </ion-toolbar>
 
    </ion-footer>
