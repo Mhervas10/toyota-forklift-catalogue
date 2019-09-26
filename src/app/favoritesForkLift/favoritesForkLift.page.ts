@@ -13,16 +13,8 @@ import { MenuController } from '@ionic/angular';
 export class FavoritesForkLiftPage implements OnInit {
 
   
-  products: Product[];
-  searchTerm: string = "";
-  filteredItems: Product[];
-  knobValues: any = {
-    upper:0,
-    lower:200
-  }
+  favorites: Array<any>;
  
-
-
   constructor(
     public loadingCtrl: LoadingController,
     private authService: AuthService,
@@ -31,6 +23,7 @@ export class FavoritesForkLiftPage implements OnInit {
     private menuCtrl: MenuController,
     
   ) { }
+
 
   ngOnInit() {
     if (this.route && this.route.data) {
@@ -47,7 +40,7 @@ export class FavoritesForkLiftPage implements OnInit {
     this.route.data.subscribe(routeData => {
       routeData['data'].subscribe(data => {
         loading.dismiss();
-        this.products = data;
+        this.favorites = data;
       })
     })
   }
