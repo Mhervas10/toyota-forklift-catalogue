@@ -16,18 +16,15 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content *ngIf="products" class="list-mini-content">
 
     <ion-searchbar (ionInput)="getItems($event)" placeholder="Que modelo quieres buscar ..."></ion-searchbar>
-
-
 
   <div *ngIf="products.length > 0" class="list-mini">
     <ion-grid>
       <ion-row>
         <ion-col size="6" *ngFor="let product of products">
-          <div>
+          
             <ion-card (click)="goToDetail(product);" class="post">
   
               <img [src]="product.image" />
@@ -46,22 +43,13 @@
               </ion-card-content>
         
             </ion-card>
-            <!-- <ion-button color="light" (click)="addFavorite(product)">
-              <ion-icon name="heart" color="medium"></ion-icon>
-            </ion-button>  -->
-          </div>
-
-           
 
         </ion-col>
-
 
       </ion-row>
 
     </ion-grid>
   </div>
-
-  
 
   <!-- <ion-item>
     <ion-label>Price</ion-label>
@@ -87,8 +75,7 @@
         <ion-row>
           <ion-col size="6" *ngFor="let forklift of items">
 
-<<<<<<< HEAD
-            <div>
+            
               <ion-card [routerLink]="['/forkLiftDetails']">
     
                 <img src="../../assets/imgs/{{forklift.model}}.jpg" />
@@ -104,47 +91,13 @@
                     {{forklift.price}} €.
                   </p>
     
-    
                 </ion-card-content>
-
-
               </ion-card>
 
-
-              <ion-button color="light" (click)="addFavorite()" expand="block">
+              <!-- <ion-button color="light" (click)="addFavorite()" expand="block">
                   <ion-icon name="heart" color="danger"></ion-icon>
-              </ion-button>
-=======
-            <ion-card [routerLink]="['/forkLiftDetails']">
-  
-  
-              <img src="../../assets/imgs/{{forklift.model}}.jpg" />
-              <ion-card-content>
-  
-                <ion-card-title>
-                  {{forklift.model | uppercase}}
-                </ion-card-title>
-                <p>
-                  {{forklift.loadCapacity}} Kg.
-                </p>
-                <p>
-                  {{forklift.price}} €.
-                </p>
-  
-  
-              </ion-card-content>
-
-              <!-- <ion-button color="light" (click)="addFavorite()">
-                  <ion-icon name="heart" color="medium"></ion-icon>
               </ion-button> -->
->>>>>>> 09e79e75f801c44dfb32ca56a5150c1b69da2181
-
-            </div>
-
           </ion-col>
-
-          
-                            
 
         </ion-row>
   
