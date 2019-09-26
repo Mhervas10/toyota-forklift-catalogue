@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="primary">
+      <ion-button [routerLink]="['/check']"  slot="start" color="danger">
+        <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
+      </ion-button>
     <ion-buttons slot="end">
       <ion-button [routerLink]="['/favoritesForkLift']">
         <ion-icon ios="ios-heart" md="md-heart" color="danger"></ion-icon>
@@ -17,6 +20,8 @@
 <ion-content *ngIf="products" class="list-mini-content">
 
     <ion-searchbar (ionInput)="getItems($event)" placeholder="Que modelo quieres buscar ..."></ion-searchbar>
+
+
 
   <div *ngIf="products.length > 0" class="list-mini">
     <ion-grid>
