@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NavController, NavParams } from '@ionic/angular';
 import { Product } from '../_interfaces/product.interface';
 import FORKLIFTS from './../../assets/data/forklifts.json';
 import { MenuController } from '@ionic/angular';
@@ -17,7 +16,7 @@ import { MenuController } from '@ionic/angular';
 export class ProductsPage implements OnInit {
 
   forkliftList = FORKLIFTS ;
-  selectedProducts: any;
+  
   products: Product[];
   searchTerm: string = "";
   filteredItems: Product[];
@@ -34,10 +33,9 @@ items:any;
     private router: Router,
     private route: ActivatedRoute,
     private menuCtrl: MenuController,
-    public navCtrl: NavController,
-    public navParams: NavParams
+
     
-  ) { this.selectedProducts = navParams.get('products'); }
+  ) {}
 
   ngOnInit() {
     this.forkliftList = FORKLIFTS as any;
@@ -48,13 +46,7 @@ this.initializaedItems();
     }
   }
 
-  // setFilteredItems(){
-
-  //   for(let i=0; i>this.products.length; i++){
-  //     if(this.products[i].title )
-  //   }
-  // }
-
+  
   async getData(){
     const loading = await this.loadingCtrl.create({
       message: 'Please wait...'
@@ -86,13 +78,6 @@ getItems (ev:any){
     })
   }
 }
-
-productTapped(event, item) {
-  this.navCtrl.push(ProductsPage, {
-    products: this.products
-  });
-  }
-
 
 
   logout(){
