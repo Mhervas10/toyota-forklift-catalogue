@@ -3,6 +3,9 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="products"></ion-back-button>
     </ion-buttons>
+      <ion-button [routerLink]="['/favoritesForkLift']" slot="end">
+        <ion-icon ios="ios-heart" md="md-heart" color="danger"></ion-icon>
+      </ion-button>
     <ion-title>ForkLift Details</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,11 +17,6 @@
         <img [src]="image" alt="this is the image"/>
       </ion-col>
     </ion-row>
-    <!-- <ion-row>
-      <ion-col size="6" offset="3">
-        <ion-button fill="outline" expand="block" size="small" (click)="openImagePicker()">Change Picture</ion-button>
-      </ion-col>
-    </ion-row> -->
   </div>
 
   <div>
