@@ -10,14 +10,8 @@ export class  ForkLiftDetailsResolver implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot) {
 
     return new Promise((resolve, reject) => {
-      let itemId = route.paramMap.get('id');
-      this.firebaseService.getForklift(itemId)
-      .then(data => {
-        data.id = itemId;
+        let data = this.firebaseService.getCurrentForklift();
         resolve(data);
-      }, err => {
-        reject(err);
-      })
     })
   }
 }

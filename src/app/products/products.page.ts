@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Product } from '../models/products'
+import { Product } from '../_interfaces/product.interface';
+import FORKLIFTS from './../../assets/data/forklifts.json';
 import { MenuController } from '@ionic/angular';
 
+import { FirebaseService } from '../services/firebase.service';
 
 
 @Component({
@@ -14,6 +16,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class ProductsPage implements OnInit {
 
+  forkliftList = FORKLIFTS ;
   
   products: Product[];
   searchTerm: string = "";
@@ -22,8 +25,8 @@ export class ProductsPage implements OnInit {
     upper:0,
     lower:200
   }
- 
-
+ busqueda = "";
+items:any;
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -31,22 +34,20 @@ export class ProductsPage implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private menuCtrl: MenuController,
-    
+    private firebaseService: FirebaseService
+
   ) { }
 
   ngOnInit() {
+    this.forkliftList = FORKLIFTS as any;
+    this.initializaedItems();
+
     if (this.route && this.route.data) {
       this.getData();
     }
   }
 
-  // setFilteredItems(){
-
-  //   for(let i=0; i>this.products.length; i++){
-  //     if(this.products[i].title )
-  //   }
-  // }
-
+  
   async getData(){
     const loading = await this.loadingCtrl.create({
       message: 'Please wait...'
@@ -56,13 +57,36 @@ export class ProductsPage implements OnInit {
     this.route.data.subscribe(routeData => {
       routeData['data'].subscribe(data => {
         loading.dismiss();
-        this.products = data;
-      })
+        // Clean data from firebase
+        this.products = [];      
+        for (let i = 0; i < data.length; i++) {   
+          this.products[i] = data[i].payload.doc.data();  
+        }
+      console.log("Los productos son: ", this.products);
     })
-  }
+  });
+}
 
   async presentLoading(loading) {
     return await loading.present();
+  }
+
+initializaedItems(){
+  this.items = this.forkliftList;
+}
+
+getItems (ev:any){
+  this.initializaedItems();
+  let val = ev.target.value;
+  if (val && val.trim() != ''){
+    this.items = this.items.filter((item) => {
+      return (item.model.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    })
+  }
+}
+
+  addFavorite(){
+    
   }
 
   logout(){
@@ -72,6 +96,12 @@ export class ProductsPage implements OnInit {
     }, err => {
       console.log(err);
     })
+  }
+
+  goToDetail(forklift) {
+    this.firebaseService.setCurrentForklift(forklift);
+    this.router.navigate(['/forkLiftDetails']);
+    
   }
 
 }

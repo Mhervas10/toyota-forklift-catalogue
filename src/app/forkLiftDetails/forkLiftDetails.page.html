@@ -120,7 +120,7 @@
 
   <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button>
 
-  <ion-button class="submit-button" expand="block" color="danger" type="submit" [routerLink]="['/favoritesForkLift']" >Go to favorites</ion-button>
+  <ion-button class="submit-button" (click)="addFavorite(item)" expand="block" color="danger" type="submit">Add to favorites</ion-button>
   
   <ion-button class="delete-button" expand="block" color="primary" type="submit" ><ion-icon ios="ios-cart" md="md-cart"></ion-icon></ion-button>
 

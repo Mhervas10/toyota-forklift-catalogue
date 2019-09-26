@@ -7,26 +7,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="products" class="list-mini-content" fullscreen>
+<ion-content *ngIf="favorites" class="list-mini-content" fullscreen>
 
-  <div *ngIf="products.length > 0" class="list-mini">
+  <div *ngIf="favorites.length > 0" class="list-mini">
       <ion-list>
 
           <ion-item *ngFor="let favorite of favorites">
     
-            <ion-avatar slot="start" [routerLink]="['/forkLiftDetails', product.payload.doc.id]">
+            <ion-avatar slot="start" [routerLink]="['/forkLiftDetails', favorite.id]">
     
-              <img [src]="product.payload.doc.data().image">
+              <img [src]="favorite.image">
     
             </ion-avatar>
     
             <ion-label>
     
-              <h2>{{product.payload.doc.data().model}}</h2>
+              <h2>{{favorite.model}}</h2>
     
-              <h3>{{product.payload.doc.data().loadCapacity}} Kg.</h3>
+              <h3>{{favorite.loadCapacity}} Kg.</h3>
     
-              <p>{{product.payload.doc.data().price}} €.</p>
+              <p>{{favorite.price}} €.</p>
     
             </ion-label>
     
@@ -39,7 +39,7 @@
         </ion-list>
     
   </div>  
-  <div *ngIf="products.length == 0" class="empty-list">
+  <div *ngIf="favorites.length == 0" class="empty-list">
     Please add a new Favorite ForkLift.
   </div>
 </ion-content>

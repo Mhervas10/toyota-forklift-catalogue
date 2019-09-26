@@ -5,6 +5,7 @@ import { LoadingController, ToastController, AlertController } from '@ionic/angu
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { ActivatedRoute, Router } from '@angular/router';
+import FORKLIFTS from './../../assets/data/forklifts.json';
 
 @Component({
   selector: 'app-forkLiftDetails',
@@ -13,7 +14,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ForkLiftDetailsPage implements OnInit {
 
+forkliftList = FORKLIFTS;
+
   validations_form: FormGroup;
+  id: any;
   image: any;
   item: any;
   load: boolean = false;
@@ -157,4 +161,8 @@ export class ForkLiftDetailsPage implements OnInit {
     return await loading.present();
   }
 
+  addFavorite(favorite){
+    this.firebaseService.addFavorite(favorite);
+  }
+  
 }
