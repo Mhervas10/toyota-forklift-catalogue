@@ -18,6 +18,8 @@ export class ProductsPage implements OnInit {
   products: Product[];
   searchTerm: string = "";
   filteredItems: Product[];
+  // showing: string = "products";
+
   knobValues: any = {
     upper:0,
     lower:200
@@ -72,6 +74,19 @@ export class ProductsPage implements OnInit {
     }, err => {
       console.log(err);
     })
+  }
+  setFilteredItems(){
+    console.log("Searching term: ", this.searchTerm);
+    this.filteredItems = this.filterItems (this.searchTerm);
+    // if(this.filteredItems.length > 0){
+    // //   this.showing = "filteredItems";
+    // }
+  }
+  filterItems(searchTerm){
+    return this.products.filter((product) => {
+      let model = product.payload.doc.data().model;
+        return model.toLowerCase().includes(searchTerm.toLowerCase());
+    });
   }
 
 }

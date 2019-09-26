@@ -48,6 +48,52 @@
     Please add new ForkLift.
   </div>
 
+<!-- LISTA DE PRODUCTOS -->
+
+<ion-grid *ngIf="products.length > 0 && searchTerm == ''" align-items-start>
+  <ion-row>
+    <ion-col size="6" *ngFor="let product of products">
+      <ion-card [routerLink]="['/details', product.payload.doc.id]" [ngClass]="{'background-gray': product.payload.doc.data().state == 'sold',
+      'background-red': product.payload.doc.data().state == 'cancelled'}">
+        <img [src]="product.payload.doc.data().image" onError="this.src='./assets/imgs/default_image.jpg';">
+        <ion-card-header>
+          <ion-card-subtitle>
+            {{product.payload.doc.data().loadCapacity}}
+          </ion-card-subtitle>
+          <ion-card-title class="ion-card-custom-title">
+            {{product.payload.doc.data().model}}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="product-price">
+          {{product.payload.doc.data().price}} €
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!-- RESULTADOS DE BÚSQUEDA -->
+
+ <ion-grid *ngIf="products.length > 0 && searchTerm != '' && filteredItems.length >0" align-items-start>
+  <ion-row>
+    <ion-col size="6" *ngFor="let product of filteredItems">
+      <ion-card [routerLink]="['/details', product.payload.doc.id]" [ngClass]="{'background-gray': product.payload.doc.data().state == 'sold',
+      'background-red': product.payload.doc.data().image}" onError="this.src='./assets/imgs/default_image.jpg';">
+        <ion-card-header>
+          <ion-card-subtitle>
+            {{product.payload.doc.data().loadCapacity}}
+          </ion-card-subtitle>
+          <ion-card-title class="ion-card-custom-title">
+            {{product.payload.doc.data().model}}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="product-price">
+          {{product.payload.doc.data().price}} €
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid> 
 
 </ion-content>
  
@@ -56,7 +102,6 @@
     <ion-title>Log out, see you again!</ion-title>
   </ion-toolbar>
 </ion-footer>
-
 
 
 
