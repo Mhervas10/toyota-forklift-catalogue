@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
-
 import { Product } from '../models/products'
+import { MenuController } from '@ionic/angular';
+
+
 
 @Component({
   selector: 'app-products',
@@ -12,8 +14,8 @@ import { Product } from '../models/products'
 })
 export class ProductsPage implements OnInit {
 
-  // products: Product[];
-  products;
+  
+  products: Product[];
   searchTerm: string = "";
   filteredItems: Product[];
   // showing: string = "products";
@@ -22,12 +24,16 @@ export class ProductsPage implements OnInit {
     upper:0,
     lower:200
   }
+ 
+
 
   constructor(
     public loadingCtrl: LoadingController,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private menuCtrl: MenuController,
+    
   ) { }
 
   ngOnInit() {

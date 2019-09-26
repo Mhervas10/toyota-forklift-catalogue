@@ -56,6 +56,7 @@ export class NewForkliftPage implements OnInit {
 
     let data = {
       model: value.model,
+      image: image,
       loadCapacity: value.loadCapacity,
       aisleWidthForPallets: value.aisleWidthForPallets,
       gradeabilityWithLoad: value.gradeabilityWithLoad,

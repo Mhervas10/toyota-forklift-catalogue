@@ -20,7 +20,8 @@
       </ion-col>
     </ion-row> -->
   </div>
-  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+
+  <div>
 
     <ion-item>
 
@@ -35,8 +36,10 @@
       <ion-label position="floating" color="primary">Load Capacity</ion-label>
       
       <br>
+
+      <br>
       
-      {{loadCapacity}}
+      {{loadCapacity}} Kg.
 
     </ion-item>
 
@@ -45,8 +48,10 @@
       <ion-label position="floating" color="primary">Aisle width for pallets 800cm X 1200cm </ion-label>
 
       <br>
+
+      <br>
       
-      {{aisleWidthForPallets}}
+      {{aisleWidthForPallets}} mm.
 
     </ion-item>
 
@@ -56,7 +61,9 @@
 
       <br>
 
-      {{gradeabilityWithLoad}}
+      <br>
+
+      {{gradeabilityWithLoad}} mm.
 
     </ion-item>
 
@@ -67,7 +74,9 @@
 
       <br>
 
-      {{gradeabilityWithoutLoad}}
+      <br>
+
+      {{gradeabilityWithoutLoad}} mm.
 
     </ion-item>
 
@@ -77,7 +86,9 @@
 
       <br>
 
-      {{driveMotorRating}}
+      <br>
+
+      {{driveMotorRating}} kW.
 
     </ion-item>
 
@@ -87,7 +98,9 @@
 
       <br>
 
-      {{voltage}} 
+      <br>
+
+      {{voltage}} V/Ah.
 
     </ion-item>
 
@@ -97,23 +110,19 @@
 
       <br>
 
-      {{price}} €
+      <br>
+
+      {{price}} €.
 
     </ion-item>
-
-
-
-
 
   <!-- <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button> -->
 
   <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button>
 
-  <ion-button class="submit-button" expand="block" color="danger" type="submit" ><ion-icon ios="ios-heart" md="md-heart"></ion-icon></ion-button>
-  
+  <ion-button class="submit-button" expand="block" color="danger" type="submit" [routerLink]="['/favoritesForkLift']" >Go to favorites</ion-button>
   
   <ion-button class="delete-button" expand="block" color="primary" type="submit" ><ion-icon ios="ios-cart" md="md-cart"></ion-icon></ion-button>
-  
 
-  </form>
+</div>  
 </ion-content>
