@@ -27,28 +27,32 @@
     <ion-grid>
       <ion-row>
         <ion-col size="6" *ngFor="let product of products">
-          <ion-card [routerLink]="['/forkLiftDetails', product.payload.doc.id]" class="post">
 
-            <img [src]="product.payload.doc.data().image" />
-            <ion-card-content>
+          <div>
+            <ion-card [routerLink]="['/forkLiftDetails', product.payload.doc.id]" class="post">
 
-              <ion-card-title>
-                {{product.payload.doc.data().model}}
-              </ion-card-title>
-              <p>
-                {{product.payload.doc.data().loadCapacity}} Kg.
-              </p>
-              <p>
-                {{product.payload.doc.data().price}} €.
-              </p>
+              <img [src]="product.payload.doc.data().image" />
+              <ion-card-content>
 
-            </ion-card-content>
+                <ion-card-title>
+                  {{product.payload.doc.data().model}}
+                </ion-card-title>
+                <p>
+                  {{product.payload.doc.data().loadCapacity}} Kg.
+                </p>
+                <p>
+                  {{product.payload.doc.data().price}} €.
+                </p>
 
-            <ion-button color="light" (click)="addFavorite()">
-              <ion-icon name="heart" color="medium"></ion-icon>
+              </ion-card-content>
+
+            </ion-card>
+
+            <ion-button color="light" (click)="addFavorite()" expand="block" shape="round" >
+                <ion-icon name="heart" color="danger"></ion-icon>
             </ion-button>
 
-          </ion-card>
+        </div>
         </ion-col>
       </ion-row>
 
@@ -81,31 +85,40 @@
         <ion-row>
           <ion-col size="6" *ngFor="let forklift of items">
 
-            <ion-card [routerLink]="['/forkLiftDetails']">
-  
-  
-              <img src="../../assets/imgs/{{forklift.model}}.jpg" />
-              <ion-card-content>
-  
-                <ion-card-title>
-                  {{forklift.model | uppercase}}
-                </ion-card-title>
-                <p>
-                  {{forklift.loadCapacity}} Kg.
-                </p>
-                <p>
-                  {{forklift.price}} €.
-                </p>
-  
-  
-              </ion-card-content>
+            <div>
+              <ion-card [routerLink]="['/forkLiftDetails']">
+    
+                <img src="../../assets/imgs/{{forklift.model}}.jpg" />
+                <ion-card-content>
+    
+                  <ion-card-title>
+                    {{forklift.model | uppercase}}
+                  </ion-card-title>
+                  <p>
+                    {{forklift.loadCapacity}} Kg.
+                  </p>
+                  <p>
+                    {{forklift.price}} €.
+                  </p>
+    
+    
+                </ion-card-content>
 
-              <ion-button color="light">
-                  <ion-icon name="heart" color="medium"></ion-icon>
+
+              </ion-card>
+
+
+              <ion-button color="light" (click)="addFavorite()" expand="block">
+                  <ion-icon name="heart" color="danger"></ion-icon>
               </ion-button>
 
-            </ion-card>
+            </div>
+
           </ion-col>
+
+          
+                            
+
         </ion-row>
   
       </ion-grid>

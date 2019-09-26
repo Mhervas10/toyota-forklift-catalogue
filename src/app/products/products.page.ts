@@ -79,6 +79,9 @@ getItems (ev:any){
   }
 }
 
+  addFavorite(){
+    
+  }
 
   logout(){
     this.authService.doLogout()
