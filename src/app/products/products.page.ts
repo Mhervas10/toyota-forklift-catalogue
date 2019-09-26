@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Product } from '../models/products'
+
+import { Product } from '../_interfaces/product.interface';
+
+import FORKLIFTS from './../../assets/data/forklifts.json';
+
 import { MenuController } from '@ionic/angular';
 
 
@@ -14,18 +18,17 @@ import { MenuController } from '@ionic/angular';
 })
 export class ProductsPage implements OnInit {
 
-  
+  forkliftList = FORKLIFTS ;
+
   products: Product[];
   searchTerm: string = "";
   filteredItems: Product[];
-  // showing: string = "products";
-
   knobValues: any = {
     upper:0,
     lower:200
   }
- 
-
+ busqueda = "";
+items:any;
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -37,6 +40,9 @@ export class ProductsPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.forkliftList = FORKLIFTS as any;
+this.initializaedItems();
+
     if (this.route && this.route.data) {
       this.getData();
     }
@@ -67,6 +73,23 @@ export class ProductsPage implements OnInit {
     return await loading.present();
   }
 
+initializaedItems(){
+  this.items = this.forkliftList;
+}
+
+getItems (ev:any){
+  this.initializaedItems();
+  let val = ev.target.value;
+  if (val && val.trim() != ''){
+    this.items = this.items.filter((item) => {
+      return (item.model.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    })
+  }
+}
+
+
+
+
   logout(){
     this.authService.doLogout()
     .then(res => {
@@ -74,19 +97,6 @@ export class ProductsPage implements OnInit {
     }, err => {
       console.log(err);
     })
-  }
-  setFilteredItems(){
-    console.log("Searching term: ", this.searchTerm);
-    this.filteredItems = this.filterItems (this.searchTerm);
-    // if(this.filteredItems.length > 0){
-    // //   this.showing = "filteredItems";
-    // }
-  }
-  filterItems(searchTerm){
-    return this.products.filter((product) => {
-      // let model = product.payload.doc.data().model;
-        // return model.toLowerCase().includes(searchTerm.toLowerCase());
-    });
   }
 
 }
