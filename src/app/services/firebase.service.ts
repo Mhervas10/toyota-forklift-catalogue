@@ -118,6 +118,7 @@ export class FirebaseService {
     })
   }
 
+
   addFavorite(favorite){
     console.log("Favorito a añadir es ", favorite)
     console.log("Antes de añadir favoritos", this.favorites)
@@ -125,6 +126,7 @@ export class FirebaseService {
     console.log("Despues de añadir favoritos", this.favorites)
 
   }
+  
   getFavorites(){
     console.log("Antes de devolver favoritos", this.favorites)
     return this.favorites;

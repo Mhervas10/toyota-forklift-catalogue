@@ -35,10 +35,6 @@ export class FavoritesForkLiftPage implements OnInit {
 
 
   ngOnInit() {
-    
-    // if (this.route && this.route.data) {
-    //   this.getData();
-    // }
     this.favorites = this.firebaseService.getFavorites();
     console.log("Los favoritos son: ", this.favorites)
   }
@@ -59,6 +55,12 @@ export class FavoritesForkLiftPage implements OnInit {
 
   async presentLoading(loading) {
     return await loading.present();
+  }
+
+  goToDetail(forklift) {
+    this.firebaseService.setCurrentForklift(forklift);
+    this.router.navigate(['/forkLiftDetails']);
+    
   }
 
   logout(){

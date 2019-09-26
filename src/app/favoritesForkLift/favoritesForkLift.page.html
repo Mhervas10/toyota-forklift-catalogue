@@ -14,7 +14,7 @@
 
           <ion-item *ngFor="let favorite of favorites">
     
-            <ion-avatar slot="start" [routerLink]="['/forkLiftDetails', favorite.id]">
+            <ion-avatar slot="start" (click)="goToDetail(favorite);" class="post">
     
               <img [src]="favorite.image">
     
@@ -22,11 +22,11 @@
     
             <ion-label>
     
-              <h2>{{favorite.model}}</h2>
+              <h2> {{favorite.model}} con ID: {{favorite.id}}</h2>
     
-              <h3>{{favorite.loadCapacity}} Kg.</h3>
+              <h3> {{favorite.loadCapacity}} Kg.</h3>
     
-              <p>{{favorite.price}} €.</p>
+              <p> {{favorite.price}} €.</p>
     
             </ion-label>
     
