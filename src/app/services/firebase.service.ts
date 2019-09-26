@@ -10,6 +10,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class FirebaseService {
 
   private snapshotChangesSubscription: any;
+  public favorites: Array<any>=[];
+  public currentForklift;
 
   constructor(
     public afs: AngularFirestore,
@@ -27,19 +29,14 @@ export class FirebaseService {
     })
   }
 
-  getForklift(forkliftId){
-    return new Promise<any>((resolve, reject) => {
-      this.afAuth.user.subscribe(currentUser => {
-        if(currentUser){
-          this.snapshotChangesSubscription = this.afs.doc<any>('people/' + currentUser.uid + '/forklifts/' + forkliftId).valueChanges()
-          .subscribe(snapshots => {
-            resolve(snapshots);
-          }, err => {
-            reject(err)
-          })
-        }
-      })
-    });
+
+  
+  setCurrentForklift(forklift){
+     this.currentForklift = forklift;
+  }
+  
+  getCurrentForklift(){
+    return this.getCurrentForklift;
   }
 
   unsubscribeOnLogOut(){
@@ -119,5 +116,17 @@ export class FirebaseService {
         })
       })
     })
+  }
+
+  addFavorite(favorite){
+    console.log("Favorito a añadir es ", favorite)
+    console.log("Antes de añadir favoritos", this.favorites)
+    this.favorites.push(favorite);
+    console.log("Despues de añadir favoritos", this.favorites)
+
+  }
+  getFavorites(){
+    console.log("Antes de devolver favoritos", this.favorites)
+    return this.favorites;
   }
 }

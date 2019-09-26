@@ -9,6 +9,7 @@ import FORKLIFTS from './../../assets/data/forklifts.json';
 
 import { MenuController } from '@ionic/angular';
 
+import { FirebaseService } from '../services/firebase.service';
 
 
 @Component({
@@ -36,12 +37,13 @@ items:any;
     private router: Router,
     private route: ActivatedRoute,
     private menuCtrl: MenuController,
-    
+    private firebaseService: FirebaseService
+
   ) { }
 
   ngOnInit() {
     this.forkliftList = FORKLIFTS as any;
-this.initializaedItems();
+    this.initializaedItems();
 
     if (this.route && this.route.data) {
       this.getData();
@@ -64,10 +66,15 @@ this.initializaedItems();
     this.route.data.subscribe(routeData => {
       routeData['data'].subscribe(data => {
         loading.dismiss();
-        this.products = data;
-      })
+        // Clean data from firebase
+        this.products = [];      
+        for (let i = 0; i < data.length; i++) {   
+          this.products[i] = data[i].payload.doc.data();  
+        }
+      console.log("Los productos son: ", this.products);
     })
-  }
+  });
+}
 
   async presentLoading(loading) {
     return await loading.present();
@@ -97,6 +104,12 @@ getItems (ev:any){
     }, err => {
       console.log(err);
     })
+  }
+
+  goToDetail(forklift) {
+    this.firebaseService.setCurrentForklift(forklift);
+    this.router.navigate(['/forkLiftDetails']);
+    
   }
 
 }

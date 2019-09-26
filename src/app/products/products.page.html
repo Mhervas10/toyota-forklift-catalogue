@@ -27,29 +27,35 @@
     <ion-grid>
       <ion-row>
         <ion-col size="6" *ngFor="let product of products">
-          <ion-card [routerLink]="['/forkLiftDetails', product.payload.doc.id]" class="post">
-
-            <img [src]="product.payload.doc.data().image" />
-            <ion-card-content>
-
-              <ion-card-title>
-                {{product.payload.doc.data().model}}
-              </ion-card-title>
-              <p>
-                {{product.payload.doc.data().loadCapacity}} Kg.
-              </p>
-              <p>
-                {{product.payload.doc.data().price}} €.
-              </p>
-
-            </ion-card-content>
-
-            <ion-button color="light" (click)="addFavorite()">
+          <div>
+            <ion-card (click)="goToDetail(product);" class="post">
+  
+              <img [src]="product.image" />
+              <ion-card-content>
+  
+                <ion-card-title>
+                  {{product.model}} con ID: {{product.id}}
+                </ion-card-title>
+                <p>
+                  {{product.loadCapacity}} Kg.
+                </p>
+                <p>
+                  {{product.price}} €.
+                </p>
+  
+              </ion-card-content>
+        
+            </ion-card>
+            <!-- <ion-button color="light" (click)="addFavorite(product)">
               <ion-icon name="heart" color="medium"></ion-icon>
-            </ion-button>
+            </ion-button>  -->
+          </div>
 
-          </ion-card>
+           
+
         </ion-col>
+
+
       </ion-row>
 
     </ion-grid>
@@ -100,9 +106,9 @@
   
               </ion-card-content>
 
-              <ion-button color="light" (click)="addFavorite()">
+              <!-- <ion-button color="light" (click)="addFavorite()">
                   <ion-icon name="heart" color="medium"></ion-icon>
-              </ion-button>
+              </ion-button> -->
 
             </ion-card>
           </ion-col>
