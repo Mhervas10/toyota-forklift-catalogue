@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'forkLiftDetails/:id', loadChildren: './forkLiftDetails/forkLiftDetails.module#ForkLiftDetailsPageModule' },
   { path: 'products', loadChildren: './products/products.module#ProductsPageModule' },
   { path: 'new-forklift', loadChildren: './new-forklift/new-forklift.module#NewForkliftPageModule' },
+  { path: 'check', loadChildren: './check/check.module#CheckPageModule' }
   { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
   { path: 'favoritesForkLift', loadChildren: './favoritesForkLift/favoritesForkLift.module#FavoritesForkLiftPageModule' },
 
