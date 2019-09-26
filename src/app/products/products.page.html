@@ -97,11 +97,19 @@
 
 </ion-content>
  
-<ion-footer (click)="logout()">
+<ion-footer>
   <ion-toolbar color="medium">
-    <ion-title>Log out, see you again!</ion-title>
+    <ion-title>Log out</ion-title>
+    <ion-buttons slot="end">
+    <ion-menu-button color="light"
+    menu="first">
+    </ion-menu-button>
+    </ion-buttons>
+    <ion-title (click)="logout()">Log out</ion-title>
   </ion-toolbar>
 </ion-footer>
+
+
 
 
 

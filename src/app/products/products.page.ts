@@ -84,8 +84,8 @@ export class ProductsPage implements OnInit {
   }
   filterItems(searchTerm){
     return this.products.filter((product) => {
-      let model = product.payload.doc.data().model;
-        return model.toLowerCase().includes(searchTerm.toLowerCase());
+      // let model = product.payload.doc.data().model;
+        // return model.toLowerCase().includes(searchTerm.toLowerCase());
     });
   }
 
