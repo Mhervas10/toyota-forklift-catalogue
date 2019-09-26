@@ -50,7 +50,7 @@
 
 <!-- LISTA DE PRODUCTOS -->
 
-<ion-grid *ngIf="products.length > 0 && searchTerm == ''" align-items-start>
+<!-- <ion-grid *ngIf="products.length > 0 && searchTerm == ''" align-items-start>
   <ion-row>
     <ion-col size="6" *ngFor="let product of products">
       <ion-card [routerLink]="['/details', product.payload.doc.id]" [ngClass]="{'background-gray': product.payload.doc.data().state == 'sold',
@@ -70,11 +70,11 @@
       </ion-card>
     </ion-col>
   </ion-row>
-</ion-grid>
+</ion-grid> -->
 
 <!-- RESULTADOS DE BÚSQUEDA -->
 
- <ion-grid *ngIf="products.length > 0 && searchTerm != '' && filteredItems.length >0" align-items-start>
+ <!-- <ion-grid *ngIf="products.length > 0 && searchTerm != '' && filteredItems.length >0" align-items-start>
   <ion-row>
     <ion-col size="6" *ngFor="let product of filteredItems">
       <ion-card [routerLink]="['/details', product.payload.doc.id]" [ngClass]="{'background-gray': product.payload.doc.data().state == 'sold',
@@ -93,7 +93,7 @@
       </ion-card>
     </ion-col>
   </ion-row>
-</ion-grid> 
+</ion-grid>  -->
 
 </ion-content>
  
