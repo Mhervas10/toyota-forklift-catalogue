@@ -1,11 +1,15 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="end">
+      <ion-button [routerLink]="['/favoritesForkLift']">
+        <ion-icon ios="ios-heart" md="md-heart" color="danger"></ion-icon>
+      </ion-button>
       <ion-button [routerLink]="['/new-forklift']">
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
+
     </ion-buttons>
-    <ion-title>ForkLisft List</ion-title>
+    <ion-title>ForkLift List</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,6 +25,10 @@
     </ion-button>
 
   <div *ngIf="products.length > 0" class="list-mini">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let product of products">
+          <ion-card [routerLink]="['/forkLiftDetails', product.payload.doc.id]">
 
   <ion-grid>
     <ion-row>
@@ -30,77 +38,89 @@
           <img [src]="product.payload.doc.data().image"/>
           <ion-card-content>
 
-            <ion-card-title>
-              {{product.payload.doc.data().model}}
-            </ion-card-title>
-            <p>
-              {{product.payload.doc.data().loadCapacity}} Kg.
-            </p>
-            <p>
-              {{product.payload.doc.data().price}} €.
-            </p>
+              <ion-card-title>
+                {{product.payload.doc.data().model}}
+              </ion-card-title>
+              <p>
+                {{product.payload.doc.data().loadCapacity}} Kg.
+              </p>
+              <p>
+                {{product.payload.doc.data().price}} €.
+              </p>
 
-          </ion-card-content>
-        </ion-card>
-      </ion-col> 
-    </ion-row>
+            </ion-card-content>
 
-  </ion-grid>
-  </div> 
-  <div *ngIf="products.length == 0" class="empty-list">
-    Please create your first product.
+            <ion-button color="light" (click)="addFavorite()">
+              <ion-icon name="heart" color="medium"></ion-icon>
+            </ion-button>
+
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
   </div>
+
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="Que modelo quieres buscar ..."></ion-searchbar>
+
+  <!-- <ion-item>
+    <ion-label>Price</ion-label>
+    <ion-select [(ngModel)]="pricefilter">
+      <ion-option value="1000">more than 1000</ion-option>
+      <ion-option value="5000">more than 5000</ion-option>
+      <ion-option value="10000">more than 10000</ion-option>
+      <ion-option value="15000">more than 15000</ion-option>
+      <ion-option value="20000">more than 20000</ion-option>
+    </ion-select>
+  </ion-item> -->
+
+  <!-- <div *ngFor=' let forklift of forkliftList '>
+    <ion-card *ngIf=" (  pricefilter =='' || pricefilter = content.price*1 )  ">
+      <ion-card-content >
+        <h1> {{ forklift.price }}
+      </ion-card-content>
+    </ion-card>
+  </div> -->
+
+
+  <div *ngIf="forkliftList.length > 0 else noData">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let forklift of items  ">
+          <ion-card [routerLink]="['/forkLiftDetails', forklift.id]">
+
+
+            <img src="../../assets/imgs/{{forklift.model}}.jpg" />
+            <ion-card-content>
+
+              <ion-card-title>
+                {{forklift.model | uppercase}}
+              </ion-card-title>
+              <p>
+                {{forklift.loadCapacity}} Kg.
+              </p>
+              <p>
+                {{forklift.price}} €.
+              </p>
+
+
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+
+  <div *ngIf="forkliftList.length == 0" class="empty-list">
+    Please add new ForkLift.
+  </div>
+
+
 </ion-content>
-
-<!-- LISTA DE PRODUCTOS -->
-
-<ion-grid *ngIf="products.length > 0 && searchTerm == ''" align-items-start>
-  <ion-row>
-    <ion-col size="6" *ngFor="let product of products">
-      <ion-card [routerLink]="['/details', product.payload.doc.id]" [ngClass]="{'background-gray': product.payload.doc.data().state == 'sold',
-      'background-red': product.payload.doc.data().state == 'cancelled'}">
-        <img [src]="product.payload.doc.data().image" onError="this.src='./assets/imgs/default_image.jpg';">
-        <ion-card-header>
-          <ion-card-subtitle>
-            {{product.payload.doc.data().loadCapacity}}
-          </ion-card-subtitle>
-          <ion-card-title class="ion-card-custom-title">
-            {{product.payload.doc.data().model}}
-          </ion-card-title>
-        </ion-card-header>
-        <ion-card-content class="product-price">
-          {{product.payload.doc.data().price}} €
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-
-<!-- RESULTADOS DE BÚSQUEDA -->
-
- <ion-grid *ngIf="products.length > 0 && searchTerm != '' && filteredItems.length >0" align-items-start>
-  <ion-row>
-    <ion-col size="6" *ngFor="let product of filteredItems">
-      <ion-card [routerLink]="['/details', product.payload.doc.id]" [ngClass]="{'background-gray': product.payload.doc.data().state == 'sold',
-      'background-red': product.payload.doc.data().image}" onError="this.src='./assets/imgs/default_image.jpg';">
-        <ion-card-header>
-          <ion-card-subtitle>
-            {{product.payload.doc.data().loadCapacity}}
-          </ion-card-subtitle>
-          <ion-card-title class="ion-card-custom-title">
-            {{product.payload.doc.data().model}}
-          </ion-card-title>
-        </ion-card-header>
-        <ion-card-content class="product-price">
-          {{product.payload.doc.data().price}} €
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid> 
 
 <ion-footer (click)="logout()">
   <ion-toolbar color="medium">
-    <ion-title>Log out</ion-title>
+    <ion-title>Log out, see you again!</ion-title>
   </ion-toolbar>
 </ion-footer>

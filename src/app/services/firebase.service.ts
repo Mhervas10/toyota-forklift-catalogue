@@ -74,6 +74,7 @@ export class FirebaseService {
       let currentUser = firebase.auth().currentUser;
       this.afs.collection('people').doc(currentUser.uid).collection('forklifts').add({
         model: value.model,
+        image: value.image,
         loadCapacity: value.loadCapacity,
         aisleWidthForPallets: value.aisleWidthForPallets,
         gradeabilityWithLoad: value.gradeabilityWithLoad,
