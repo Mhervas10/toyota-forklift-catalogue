@@ -161,4 +161,8 @@ forkliftList = FORKLIFTS;
     return await loading.present();
   }
 
+  addFavorite(favorite){
+    this.firebaseService.addFavorite(favorite);
+  }
+  
 }
