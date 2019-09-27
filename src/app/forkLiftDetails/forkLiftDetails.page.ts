@@ -6,9 +6,6 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { ActivatedRoute, Router } from '@angular/router';
 import FORKLIFTS from './../../assets/data/forklifts.json';
-
-import { Product } from '../_interfaces/product.interface';
-
 @Component({
   selector: 'app-forkLiftDetails',
   templateUrl: './forkLiftDetails.page.html',
@@ -16,25 +13,7 @@ import { Product } from '../_interfaces/product.interface';
 })
 export class ForkLiftDetailsPage implements OnInit {
 
-
 forkliftList = FORKLIFTS;
-
-
-
-getForkliftDetails(value){
-let forklift = {
-  model: value.model,
-  image: this.image,
-  loadCapacity: value.loadCapacity,
-  aisleWidthForPallets: value.aisleWidthForPallets,
-  gradeabilityWithLoad: value.gradeabilityWithLoad,
-  gradeabilityWithoutLoad: value.gradeabilityWithoutLoad,
-  driveMotorRating: value.driveMotorRating,
-  voltage: value.voltage,
-  price: value.price,
-
-}
-}
 
 
   validations_form: FormGroup;
@@ -67,26 +46,11 @@ let forklift = {
     this.getData();
   }
 
-  getData(){
-    this.route.data.subscribe(routeData => {
-     let data = routeData['data'];
-     if (data) {
-      this.item = data;
-      this.image = this.item.image;
-      this.model= this.item.model;
-      this.loadCapacity = this.item.loadCapacity;
-      this.aisleWidthForPallets = this.item.aisleWidthForPallets;
-      this.gradeabilityWithLoad = this.item.gradeabilityWithLoad;
-      this.gradeabilityWithoutLoad= this.item.gradeabilityWithoutLoad;
-      this.driveMotorRating = this.item.driveMotorRating;
-      this.voltage = this.item.voltage;
-      this.price = this.item.price;
-     }
-    })
-    // this.validations_form = this.formBuilder.group({
-    //   model: new FormControl(this.item.model, Validators.required),
 
-    // });
+
+  getData(){
+    this.item = this.firebaseService.getCurrentForklift();
+
   }
 
   onSubmit(value){
