@@ -11,7 +11,7 @@
   <div>
     <ion-row>
       <ion-col size="6" offset="3">
-        <img [src]="image" alt="this is the image"/>
+        <img [src]="" alt="this is the image"/>
       </ion-col>
     </ion-row>
     <!-- <ion-row>
@@ -25,9 +25,9 @@
 
     <ion-item>
 
-      <ion-label position="floating" color="primary">Model</ion-label>
+      <ion-label  position="floating" color="primary">Model</ion-label>
 
-      {{model}}
+      {{item.model | uppercase}}
 
     </ion-item>
 
@@ -39,7 +39,7 @@
 
       <br>
       
-      {{loadCapacity}} Kg.
+      {{item.loadCapacity}} Kg.
 
     </ion-item>
 
@@ -51,7 +51,7 @@
 
       <br>
       
-      {{aisleWidthForPallets}} mm.
+      {{item.aisleWidthForPallets}} mm.
 
     </ion-item>
 
@@ -63,7 +63,7 @@
 
       <br>
 
-      {{gradeabilityWithLoad}} mm.
+      {{item.gradeabilityWithLoad}} mm.
 
     </ion-item>
 
@@ -76,7 +76,7 @@
 
       <br>
 
-      {{gradeabilityWithoutLoad}} mm.
+      {{item.gradeabilityWithoutLoad}} mm.
 
     </ion-item>
 
@@ -88,7 +88,7 @@
 
       <br>
 
-      {{driveMotorRating}} kW.
+      {{item.driveMotorRating}} kW.
 
     </ion-item>
 
@@ -100,7 +100,7 @@
 
       <br>
 
-      {{voltage}} V/Ah.
+      {{item.voltage}} V/Ah.
 
     </ion-item>
 
@@ -112,7 +112,7 @@
 
       <br>
 
-      {{price}} €.
+      {{item.price}} €.
 
     </ion-item>
 

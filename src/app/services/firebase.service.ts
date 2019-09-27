@@ -33,11 +33,12 @@ export class FirebaseService {
   
   setCurrentForklift(forklift){
      this.currentForklift = forklift;
+     console.log(" El forklift seleccionado es: " ,this.currentForklift)
   }
   
   getCurrentForklift(){
-    return this.getCurrentForklift;
-  }
+    return this.currentForklift;
+  } 
 
   unsubscribeOnLogOut(){
     //remember to unsubscribe from the snapshotChanges
