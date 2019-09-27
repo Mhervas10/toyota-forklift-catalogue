@@ -9,14 +9,6 @@
   margin-top: 20px;
 }
 
-.submit-btn
-{
-  margin-top: 40px;
-}
-
-.form {
-  margin-top: 40vh;
-}
 
 :root {
   --ion-safe-area-top: 20px;
@@ -26,9 +18,12 @@
   display: block;
 }
 
+// ion-slides{
+//   height: 100%;
+// }
+
 ion-slide{
   h1{
-    margin-top: 6rem;
     color: white;
   }
   img{
@@ -42,27 +37,15 @@ ion-slide{
 
 
 .slider2 img {
-  max-height: 20%;
-  max-width: 30%;
-  margin: 36px 0;
- 
+  max-width: 40%;
 }
 
 .slider2{
   h2{
-  margin-top: 1rem;
   color: #d40000;
-  font-size: 2rem;
   }
   p{
     color:white;
-    padding: 2rem;
-  }
-  img{
-    margin-top: 5rem;
-  }
-  button{
-    padding: 30px;
   }
   
 }
@@ -71,4 +54,22 @@ ion-slide{
 .boton-letsgo:hover {
     color: white;
     cursor: pointer;
+}
+
+.welcome-page-styles {
+ 
+  --background: url('../../assets/imgs/fondo-login.jpg') no-repeat cover fixed center;
+  background: url('../../assets/imgs/fondo-login.jpg') no-repeat fixed center;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+.swiper-slide{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  height: 100vh;
+  padding-bottom: 3rem;
 }
