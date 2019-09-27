@@ -10,7 +10,13 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item>Menu Item 1</ion-item>
+      <ion-item>
+        <h3 (click)="valor1 = !valor1" >Mi primer elemento</h3>
+        <p *ngIf="valor1">
+        Objeto expandido
+        </p>
+      </ion-item>
+      
       <ion-item>Menu Item 2</ion-item>
       <ion-item>Menu Item 3</ion-item>
       <ion-item>Menu Item 4</ion-item>
