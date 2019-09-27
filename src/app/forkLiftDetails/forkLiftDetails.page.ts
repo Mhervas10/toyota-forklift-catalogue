@@ -7,6 +7,8 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { ActivatedRoute, Router } from '@angular/router';
 import FORKLIFTS from './../../assets/data/forklifts.json';
 
+import { Product } from '../_interfaces/product.interface';
+
 @Component({
   selector: 'app-forkLiftDetails',
   templateUrl: './forkLiftDetails.page.html',
@@ -14,7 +16,26 @@ import FORKLIFTS from './../../assets/data/forklifts.json';
 })
 export class ForkLiftDetailsPage implements OnInit {
 
+
 forkliftList = FORKLIFTS;
+
+
+
+getForkliftDetails(value){
+let forklift = {
+  model: value.model,
+  image: this.image,
+  loadCapacity: value.loadCapacity,
+  aisleWidthForPallets: value.aisleWidthForPallets,
+  gradeabilityWithLoad: value.gradeabilityWithLoad,
+  gradeabilityWithoutLoad: value.gradeabilityWithoutLoad,
+  driveMotorRating: value.driveMotorRating,
+  voltage: value.voltage,
+  price: value.price,
+
+}
+}
+
 
   validations_form: FormGroup;
   id: any;

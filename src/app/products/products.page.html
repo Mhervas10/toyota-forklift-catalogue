@@ -76,7 +76,7 @@
           <ion-col size="6" *ngFor="let forklift of items">
 
             
-              <ion-card [routerLink]="['/forkLiftDetails']">
+              <ion-card [routerLink]="['/forkLiftDetails']" (click)="goToDetail(forklift);" class="post">
     
                 <img src="../../assets/imgs/{{forklift.model}}.jpg" />
                 <ion-card-content>
