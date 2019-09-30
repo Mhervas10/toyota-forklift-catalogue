@@ -5,11 +5,11 @@
 </ion-header> -->
 
 <ion-content padding class="form-content fondo-prueba">
-  <img src="../assets/imgs/toyota-emblem.svg"/>
+  <img class="logo-toyota" src="../assets/imgs/toyota-emblem.svg"/>
   <form class="form" [formGroup]="validations_form" (ngSubmit)="tryRegister(validations_form.value)">
 
     <ion-item class="login-register-inputs">
-      <ion-label position="floating" color="danger">Email</ion-label>
+      <ion-label position="floating" color="light">Email</ion-label>
       <ion-input type="text" formControlName="email"></ion-input>
     </ion-item>
     <div class="validation-errors">
@@ -21,7 +21,7 @@
     </div>
 
     <ion-item class="login-register-inputs">
-      <ion-label position="floating" color="danger">Password</ion-label>
+      <ion-label position="floating" color="light">Password</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
     <div class="validation-errors">

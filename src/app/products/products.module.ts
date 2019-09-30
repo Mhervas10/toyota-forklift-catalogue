@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProductsPage } from './products.page';
 import { ProductsResolver } from './products.resolver';
-
+import { MenuComponent } from '../menu/menu.component';
 
 const routes: Routes = [
   {
@@ -28,7 +28,10 @@ const routes: Routes = [
     RouterModule.forChild(routes),
 
   ],
-  declarations: [ProductsPage],
+  exports: [
+    MenuComponent
+  ],
+  declarations: [ProductsPage, MenuComponent],
   providers: [
     ProductsResolver
   ]
