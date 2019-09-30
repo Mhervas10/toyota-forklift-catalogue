@@ -21,6 +21,7 @@ import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 // import { NewForkliftModalPage } from './new-forklift-modal/new-forklift-modal.page';
 
 
