@@ -10,37 +10,49 @@
 
   <div *ngIf="favorites.length > 0" class="list-mini">
 
+<!-- se repite un sliding para cada torro metido en la lista de favoritos -->
     <ion-item *ngFor="let favorite of favorites">
 
+<!-- aquí empieza el sliding -->
       <ion-item-sliding>
+
         <ion-item>
 
-
           <ion-avatar slot="start" size="large">
-            <img  src="../../assets/imgs/{{favorite.model}}.jpg">
+            <img src="../../assets/imgs/{{favorite.model}}.jpg">
           </ion-avatar>
+
           <ion-label>
             <h2>{{favorite.model | uppercase}} </h2>
             <h3>{{favorite.loadCapacity}} Kg.</h3>
             <p>{{favorite.price}} €.</p>
-
           </ion-label>
+
+          <!-- botones derecha y izquierda, para indicar el movimiento de slide -->
           <ion-icon name="arrow-dropleft-circle" size="medium"></ion-icon>
           <ion-icon name="arrow-dropright-circle" size="medium"></ion-icon>
+
         </ion-item>
 
-        <ion-item-options >
+<!-- aquí van los botones del slide -->
 
-          <ion-item-option color="light" >
-              <ion-button (click)="goToDetail(favorite)" color="primary" expand="block"  size="medium">
-                  <ion-icon slot="icon-only" name="more"></ion-icon>
-                Details
-              </ion-button>
+        <ion-item-options>
+
+          <ion-item-option color="light">
+
+<!-- este boton nos envia a detalles del toro correspondiente al pulsarlo -->
+
+            <ion-button (click)="goToDetail(favorite)" color="primary" expand="block" size="medium">
+              <ion-icon slot="icon-only" name="more"></ion-icon>
+              Details
+            </ion-button>
           </ion-item-option>
           <ion-item-option color="light">
 
-            <ion-button (click)="deleteItem(favorite)" color="secondary" expand="block"  size="medium">
-                <ion-icon slot="icon-only" name="trash"></ion-icon>
+<!-- este boton borra el toro correspondiente de la lista de favoritos al pulsar sobre el -->
+
+            <ion-button (click)="deleteItem(favorite)" color="secondary" expand="block" size="medium">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
               Delete
             </ion-button>
 
@@ -48,16 +60,16 @@
 
           </ion-item-option>
 
-
+<!-- he repetido los detalles del toro sobre el que se hace el slide, para saber en todo momento a que toro nos referimos, al ser que cuando hacemos el slide los detalles del principio no se ven, si creeis que no es necesario lo podeis borrar sin problemas  -->
           <ion-item-option color="light">
-              <ion-avatar slot="start" size="large">
-                  <img  src="../../assets/imgs/{{favorite.model}}.jpg">
-                </ion-avatar>
-                <ion-label>
-                  <h2>{{favorite.model | uppercase}} </h2>
-                  <h3>{{favorite.loadCapacity}} Kg.</h3>
-                  <p>{{favorite.price}} €.</p>
-                  </ion-label>
+            <ion-avatar slot="start" size="large">
+              <img src="../../assets/imgs/{{favorite.model}}.jpg">
+            </ion-avatar>
+            <ion-label>
+              <h2>{{favorite.model | uppercase}} </h2>
+              <h3>{{favorite.loadCapacity}} Kg.</h3>
+              <p>{{favorite.price}} €.</p>
+            </ion-label>
           </ion-item-option>
 
 
