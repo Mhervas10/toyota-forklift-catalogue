@@ -6,49 +6,52 @@
     <ion-title>Favorite ForkLift List</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content *ngIf="favorites" class="list-mini-content" fullscreen>
 
   <div *ngIf="favorites.length > 0" class="list-mini">
-    <ion-list>
+
+    <ion-item *ngFor="let favorite of favorites">
+
+      <ion-item-sliding>
+        <ion-item>
 
 
-      <ion-item *ngFor="let favorite of favorites">
-        <ion-item-sliding (ionSwipe)="deleteItem(favorite)" #{{favorite.model}}>
-          <ion-item>
+          <ion-avatar slot="start" size="large">
+            <img size="large" src="../../assets/imgs/{{favorite.model}}.jpg">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{favorite.model | uppercase}} </h2>
+            <h3>{{favorite.loadCapacity}} Kg.</h3>
+            <p>{{favorite.price}} €.</p>
+
+          </ion-label>
+          <ion-icon name="arrow-dropleft-circle" size="medium"></ion-icon>
+          <ion-icon name="arrow-dropright-circle" size="medium"></ion-icon>
+        </ion-item>
+
+        <ion-item-options >
+
+          <ion-item-option color="light" >
+              <ion-button (click)="goToDetail(favorite)" color="primary" expand="block"  size="medium">
+                  <ion-icon slot="icon-only" name="more"></ion-icon>
+                Details
+              </ion-button>
+          </ion-item-option>
+          <ion-item-option color="light">
+
+            <ion-button (click)="deleteItem(favorite)" color="secondary" expand="block"  size="medium">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+              Delete
+            </ion-button>
 
 
-
-            <ion-avatar slot="start">
-              <img src="../../assets/imgs/{{favorite.model}}.jpg">
-
-            </ion-avatar>
-            <ion-label>
-              <h2>{{favorite.model | uppercase}} </h2>
-
-              <h3>{{favorite.loadCapacity}} Kg.</h3>
-
-              <p>{{favorite.price}} €.</p>
-            </ion-label>
-          </ion-item>
-          <ion-item-options>
-
-            <button danger ion-button (click)="deleteItem(favorite)">Delete</button>
-          </ion-item-options>
-
-
-
-
-        </ion-item-sliding>
-
-      </ion-item>
-
-
-
-
-    </ion-list>
-
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-item>
   </div>
+
+
   <div *ngIf="favorites.length == 0" class="empty-list">
     Please add a new Favorite ForkLift.
   </div>

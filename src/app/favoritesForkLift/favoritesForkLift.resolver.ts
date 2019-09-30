@@ -10,4 +10,6 @@ export class FavoritesForkLiftResolver implements Resolve<any> {
   resolve() {
     return this.firebaseService.getForklifts();
   }
+
+ 
 }
