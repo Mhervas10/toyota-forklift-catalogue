@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage';
 
 
+
 // import { NewForkliftModalPage } from './new-forklift-modal/new-forklift-modal.page';
 
 
