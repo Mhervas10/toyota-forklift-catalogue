@@ -11,7 +11,7 @@
 
 <ion-content *ngIf="products" class="list-mini-content">
   <ion-toolbar>
-    <ion-searchbar (ionInput)="getItems($event)" placeholder="Que modelo quieres buscar ..."></ion-searchbar>
+    <ion-searchbar (ionInput)="getItems($event)" placeholder="Type your model..."></ion-searchbar>
     <ion-buttons slot="end">
       <ion-button (click)="valor1 = !valor1">
         <ion-icon slot="icon-only" name="md-funnel" color="danger"></ion-icon>
@@ -27,7 +27,7 @@
   <div *ngIf="forkliftList.length > 0 else noData">
       <ion-grid>
         <ion-row>
-          <ion-col size="6" *ngFor="let forklift of items">
+          <ion-col size="12" *ngFor="let forklift of items">
               <ion-card  (click)="goToDetail(forklift)" class="post">
                 <img src="../../assets/imgs/{{forklift.model}}.jpg" />
                 <ion-card-content>
@@ -35,10 +35,10 @@
                     {{forklift.model | uppercase}}
                   </ion-card-title>
                   <p>
-                    {{forklift.loadCapacity}} Kg.
+                    Load: {{forklift.loadCapacity}} Kg
                   </p>
                   <p>
-                    {{forklift.price}} €.
+                    {{forklift.price}} €
                   </p>
                 </ion-card-content>
               </ion-card>

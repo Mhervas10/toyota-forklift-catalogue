@@ -31,7 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   // entryComponents: [NewForkliftModalPage],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({ scrollPadding: false}),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
