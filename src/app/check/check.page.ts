@@ -14,7 +14,7 @@ export class CheckPage implements OnInit {
     },
     {
       loadCapacity: '1800',
-      selected: true
+      selected: false
     },
     {
       loadCapacity: '2000',
@@ -26,7 +26,7 @@ export class CheckPage implements OnInit {
     },
     {
       loadCapacity: '4000',
-      selected: true
+      selected: false
     },
     {
       loadCapacity: '4500',
