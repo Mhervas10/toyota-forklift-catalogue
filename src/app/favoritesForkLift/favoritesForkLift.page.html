@@ -12,11 +12,11 @@
   <div *ngIf="favorites.length > 0" class="list-mini">
       <ion-list>
 
-          <ion-item *ngFor="let favorite of favorites">
+          <ion-item *ngFor="let favorite of favorites" [routerLink]="['/forkLiftDetails']">
     
-            <ion-avatar slot="start" [routerLink]="['/forkLiftDetails', favorite.id]">
+            <ion-avatar slot="start" >
     
-              <img [src]="favorite.image">
+              <img src="../../assets/imgs/{{favorite.model}}.jpg">
     
             </ion-avatar>
     
