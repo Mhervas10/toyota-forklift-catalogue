@@ -101,7 +101,7 @@ getItems (ev:any){
   goToDetail(forklift) {
     this.firebaseService.setCurrentForklift(forklift);
     this.router.navigate(['/forkLiftDetails']);
-    
+    console.log(this.forkliftList);
   }
 
 }
