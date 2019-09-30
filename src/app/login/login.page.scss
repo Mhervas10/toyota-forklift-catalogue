@@ -41,3 +41,24 @@ ion-input{
   padding: 1rem;
   font-size: 0.8rem;
 }
+
+
+.login-register-inputs {
+  --background: #00000000;
+  --padding-start: 0px;
+}
+
+.form-content {
+  
+  --background: url('../../assets/imgs/fondo-login.jpg') no-repeat cover fixed center;
+  background: url('../../assets/imgs/fondo-login.jpg') no-repeat fixed center;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+
+}
+
+.logo-toyota{
+  fill: white;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(1000%);
+}
