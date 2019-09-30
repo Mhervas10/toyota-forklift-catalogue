@@ -10,26 +10,35 @@
       <ion-button [routerLink]="['/new-forklift']">
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
-
     </ion-buttons>
     <ion-title>ForkLift List</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="products" class="list-mini-content">
-
+  <ion-toolbar>
     <ion-searchbar (ionInput)="getItems($event)" placeholder="Que modelo quieres buscar ..."></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="valor1 = !valor1">
+        <ion-icon slot="icon-only" name="md-funnel" color="danger"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 
-  <div *ngIf="products.length > 0" class="list-mini">
+  <ion-card class="filter-button" *ngIf="valor1">
+
+    AQUÍ VAN LOS FILTROS! :D
+
+
+  </ion-card>
+
+  <!-- <div *ngIf="products.length > 0" class="list-mini">
     <ion-grid>
       <ion-row>
-        <ion-col size="6" *ngFor="let product of products">
-          
+        <ion-col size="6" *ngFor="let product of products">        
             <ion-card (click)="goToDetail(product);" class="post">
-  
               <img [src]="product.image" />
-              <ion-card-content>
-  
+              <ion-card-content> 
                 <ion-card-title>
                   {{product.model}} con ID: {{product.id}}
                 </ion-card-title>
@@ -38,49 +47,21 @@
                 </p>
                 <p>
                   {{product.price}} €.
-                </p>
-  
-              </ion-card-content>
-        
+                </p>  
+              </ion-card-content>       
             </ion-card>
-
         </ion-col>
-
       </ion-row>
-
     </ion-grid>
-  </div>
-
-  <!-- <ion-item>
-    <ion-label>Price</ion-label>
-    <ion-select [(ngModel)]="pricefilter">
-      <ion-option value="1000">more than 1000</ion-option>
-      <ion-option value="5000">more than 5000</ion-option>
-      <ion-option value="10000">more than 10000</ion-option>
-      <ion-option value="15000">more than 15000</ion-option>
-      <ion-option value="20000">more than 20000</ion-option>
-    </ion-select>
-  </ion-item> -->
-
-  <!-- <div *ngFor=' let forklift of forkliftList '>
-    <ion-card *ngIf=" (  pricefilter =='' || pricefilter = content.price*1 )  ">
-      <ion-card-content >
-        <h1> {{ forklift.price }}
-      </ion-card-content>
-    </ion-card>
   </div> -->
 
   <div *ngIf="forkliftList.length > 0 else noData">
       <ion-grid>
         <ion-row>
           <ion-col size="6" *ngFor="let forklift of items">
-
-            
               <ion-card [routerLink]="['/forkLiftDetails']">
-    
                 <img src="../../assets/imgs/{{forklift.model}}.jpg" />
                 <ion-card-content>
-    
                   <ion-card-title>
                     {{forklift.model | uppercase}}
                   </ion-card-title>
@@ -90,30 +71,20 @@
                   <p>
                     {{forklift.price}} €.
                   </p>
-    
                 </ion-card-content>
-
-              
-
-            
-
               </ion-card>
- 
-              
           </ion-col>
-
         </ion-row>
-  
       </ion-grid>
     </div>
-  
+
+    <!-- SI NO HAY PRODUCTOS -->
+
     <div *ngIf="forkliftList.length == 0" class="empty-list">
       Please add new ForkLift.
     </div>
-  
-  
   </ion-content>
-  
+  <!-- FIN DEL BODY -->
   <ion-footer >
 
     <ion-toolbar color="danger">
@@ -134,7 +105,8 @@
    </ion-footer>
   
    
-    <app-menu></app-menu>
+    <!-- <app-menu></app-menu> -->
+
     <div  id="principal"></div>
   
   
