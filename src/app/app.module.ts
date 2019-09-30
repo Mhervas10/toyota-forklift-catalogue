@@ -19,13 +19,13 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MenuComponent } from './menu/menu.component';
+
 
 // import { NewForkliftModalPage } from './new-forklift-modal/new-forklift-modal.page';
 
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, ],
+  declarations: [AppComponent ],
   // declarations: [AppComponent, NewForkliftModalPage],
   // entryComponents: [NewForkliftModalPage],
   imports: [
@@ -41,9 +41,7 @@ import { MenuComponent } from './menu/menu.component';
    
 
   ],
-  exports: [
-    MenuComponent
-  ],
+  
   providers: [
     StatusBar,
     SplashScreen,

@@ -3,6 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="products"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/favoritesForkLift']" >
+        <ion-icon ios="ios-heart" md="md-heart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>ForkLift Details</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +16,7 @@
   <div>
     <ion-row>
       <ion-col size="6" offset="3">
-        <img [src]="image" alt="this is the image"/>
+        <img src="../../assets/imgs/{{item.model}}.jpg" alt="this is the image"/>
       </ion-col>
     </ion-row>
     <!-- <ion-row>
@@ -25,9 +30,9 @@
 
     <ion-item>
 
-      <ion-label position="floating" color="primary">Model</ion-label>
+      <ion-label  position="floating" color="primary">Model</ion-label>
 
-      {{model}}
+      {{item.model | uppercase}}
 
     </ion-item>
 
@@ -39,7 +44,7 @@
 
       <br>
       
-      {{loadCapacity}} Kg.
+      {{item.loadCapacity}} Kg.
 
     </ion-item>
 
@@ -51,7 +56,7 @@
 
       <br>
       
-      {{aisleWidthForPallets}} mm.
+      {{item.aisleWidthForPallets}} mm.
 
     </ion-item>
 
@@ -63,7 +68,7 @@
 
       <br>
 
-      {{gradeabilityWithLoad}} mm.
+      {{item.gradeabilityWithLoad}} mm.
 
     </ion-item>
 
@@ -76,7 +81,7 @@
 
       <br>
 
-      {{gradeabilityWithoutLoad}} mm.
+      {{item.gradeabilityWithoutLoad}} mm.
 
     </ion-item>
 
@@ -88,7 +93,7 @@
 
       <br>
 
-      {{driveMotorRating}} kW.
+      {{item.driveMotorRating}} kW.
 
     </ion-item>
 
@@ -100,7 +105,7 @@
 
       <br>
 
-      {{voltage}} V/Ah.
+      {{item.voltage}} V/Ah.
 
     </ion-item>
 
@@ -112,15 +117,15 @@
 
       <br>
 
-      {{price}} €.
+      {{item.price}} €.
 
     </ion-item>
 
   <!-- <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button> -->
 
-  <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button>
+  <!-- <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button> -->
 
-  <ion-button class="submit-button" expand="block" color="danger" type="submit" [routerLink]="['/favoritesForkLift']" >Go to favorites</ion-button>
+  <ion-button class="submit-button" (click)="addFavorite(item)" expand="block" color="danger" type="submit">Add to favorites</ion-button>
   
   <ion-button class="delete-button" expand="block" color="primary" type="submit" ><ion-icon ios="ios-cart" md="md-cart"></ion-icon></ion-button>
 

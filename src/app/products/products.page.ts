@@ -2,13 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
-
 import { Product } from '../_interfaces/product.interface';
-
 import FORKLIFTS from './../../assets/data/forklifts.json';
-
 import { MenuController } from '@ionic/angular';
 
+import { FirebaseService } from '../services/firebase.service';
 
 
 @Component({
@@ -19,7 +17,7 @@ import { MenuController } from '@ionic/angular';
 export class ProductsPage implements OnInit {
 
   forkliftList = FORKLIFTS ;
-
+  
   products: Product[];
   searchTerm: string = "";
   filteredItems: Product[];
@@ -36,25 +34,20 @@ items:any;
     private router: Router,
     private route: ActivatedRoute,
     private menuCtrl: MenuController,
-    
+    private firebaseService: FirebaseService
+
   ) { }
 
   ngOnInit() {
     this.forkliftList = FORKLIFTS as any;
-this.initializaedItems();
+    this.initializaedItems();
 
     if (this.route && this.route.data) {
       this.getData();
     }
   }
 
-  // setFilteredItems(){
-
-  //   for(let i=0; i>this.products.length; i++){
-  //     if(this.products[i].title )
-  //   }
-  // }
-
+  
   async getData(){
     const loading = await this.loadingCtrl.create({
       message: 'Please wait...'
@@ -64,10 +57,15 @@ this.initializaedItems();
     this.route.data.subscribe(routeData => {
       routeData['data'].subscribe(data => {
         loading.dismiss();
-        this.products = data;
-      })
+        // Clean data from firebase
+        this.products = [];      
+        for (let i = 0; i < data.length; i++) {   
+          this.products[i] = data[i].payload.doc.data();  
+        }
+      console.log("Los productos son: ", this.products);
     })
-  }
+  });
+}
 
   async presentLoading(loading) {
     return await loading.present();
@@ -87,8 +85,9 @@ getItems (ev:any){
   }
 }
 
-
-
+  addFavorite(){
+    
+  }
 
   logout(){
     this.authService.doLogout()
@@ -97,6 +96,12 @@ getItems (ev:any){
     }, err => {
       console.log(err);
     })
+  }
+
+  goToDetail(forklift) {
+    this.firebaseService.setCurrentForklift(forklift);
+    this.router.navigate(['/forkLiftDetails']);
+    console.log(this.forkliftList);
   }
 
 }

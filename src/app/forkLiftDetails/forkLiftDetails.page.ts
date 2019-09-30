@@ -6,7 +6,6 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { ActivatedRoute, Router } from '@angular/router';
 import FORKLIFTS from './../../assets/data/forklifts.json';
-
 @Component({
   selector: 'app-forkLiftDetails',
   templateUrl: './forkLiftDetails.page.html',
@@ -15,6 +14,7 @@ import FORKLIFTS from './../../assets/data/forklifts.json';
 export class ForkLiftDetailsPage implements OnInit {
 
 forkliftList = FORKLIFTS;
+
 
   validations_form: FormGroup;
   id: any;
@@ -46,26 +46,11 @@ forkliftList = FORKLIFTS;
     this.getData();
   }
 
-  getData(){
-    this.route.data.subscribe(routeData => {
-     let data = routeData['data'];
-     if (data) {
-      this.item = data;
-      this.image = this.item.image;
-      this.model= this.item.model;
-      this.loadCapacity = this.item.loadCapacity;
-      this.aisleWidthForPallets = this.item.aisleWidthForPallets;
-      this.gradeabilityWithLoad = this.item.gradeabilityWithLoad;
-      this.gradeabilityWithoutLoad= this.item.gradeabilityWithoutLoad;
-      this.driveMotorRating = this.item.driveMotorRating;
-      this.voltage = this.item.voltage;
-      this.price = this.item.price;
-     }
-    })
-    // this.validations_form = this.formBuilder.group({
-    //   model: new FormControl(this.item.model, Validators.required),
 
-    // });
+
+  getData(){
+    this.item = this.firebaseService.getCurrentForklift();
+
   }
 
   onSubmit(value){
@@ -161,4 +146,8 @@ forkliftList = FORKLIFTS;
     return await loading.present();
   }
 
+  addFavorite(favorite){
+    this.firebaseService.addFavorite(favorite);
+  }
+  
 }
