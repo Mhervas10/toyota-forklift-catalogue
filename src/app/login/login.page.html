@@ -1,14 +1,5 @@
-<!-- <ion-header>
-  <ion-toolbar color="danger">
-    <ion-title>Log In</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-   
-
-
 <ion-content padding class="form-content">
- <img class="logo-toyota" src="../assets/imgs/toyota-emblem.svg"/>
+  <img class="logo-toyota" src="../assets/imgs/toyota-emblem.svg"/>
   <form class="form" [formGroup]="validations_form" (ngSubmit)="tryLogin(validations_form.value)">
     <ion-item class="login-register-inputs">
       <ion-label position="floating" color="light">Email</ion-label>

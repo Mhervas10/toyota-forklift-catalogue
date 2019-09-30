@@ -20,109 +20,57 @@
       </ion-col>
     </ion-row>
   </div>
-
   <div>
-
     <ion-item>
-
       <ion-label  position="floating" color="primary">Model</ion-label>
-
       {{item.model | uppercase}}
-
     </ion-item>
-
     <ion-item>
-
       <ion-label position="floating" color="primary">Load Capacity</ion-label>
-      
       <br>
-
       <br>
-      
       {{item.loadCapacity}} Kg.
-
     </ion-item>
-
     <ion-item>
-
       <ion-label position="floating" color="primary">Aisle width for pallets 800cm X 1200cm </ion-label>
-
       <br>
-
       <br>
-      
       {{item.aisleWidthForPallets}} mm.
-
     </ion-item>
-
     <ion-item>
-
       <ion-label position="floating" color="primary">Gradeability with Load</ion-label>
-
       <br>
-
       <br>
-
       {{item.gradeabilityWithLoad}} mm.
-
     </ion-item>
-
-
     <ion-item>
-
       <ion-label position="floating" color="primary">Gradeability without Load</ion-label>
-
       <br>
-
       <br>
-
       {{item.gradeabilityWithoutLoad}} mm.
-
     </ion-item>
-
     <ion-item>
-
       <ion-label position="floating" color="primary">Drive motor ratong S2 60min</ion-label>
-
       <br>
-
       <br>
-
       {{item.driveMotorRating}} kW.
-
     </ion-item>
-
     <ion-item>
-
       <ion-label position="floating" color="primary">Voltage</ion-label>
-
       <br>
-
       <br>
-
       {{item.voltage}} V/Ah.
-
     </ion-item>
-
     <ion-item>
-
       <ion-label position="floating" color="primary">Price</ion-label>
-
       <br>
-
       <br>
-
       {{item.price}} €.
-
     </ion-item>
-
   <!-- <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button> -->
 
   <!-- <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button> -->
-
   <ion-button class="submit-button" (click)="addFavorite(item)" expand="block" color="danger" type="submit">Add to favorites</ion-button>
-  
   <ion-button class="delete-button" expand="block" color="primary" type="submit" ><ion-icon ios="ios-cart" md="md-cart"></ion-icon></ion-button>
-
 </div>  
 </ion-content>

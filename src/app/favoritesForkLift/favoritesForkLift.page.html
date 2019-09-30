@@ -8,47 +8,31 @@
 </ion-header>
 
 <ion-content *ngIf="favorites" class="list-mini-content" fullscreen>
-
   <div *ngIf="favorites.length > 0" class="list-mini">
       <ion-list>
-
           <ion-item *ngFor="let favorite of favorites" [routerLink]="['/forkLiftDetails']">
-    
             <ion-avatar slot="start" >
-    
               <img src="../../assets/imgs/{{favorite.model}}.jpg">
-    
             </ion-avatar>
-    
             <ion-label>
     
               <h2> {{favorite.model}}</h2>
     
-              <h3> {{favorite.loadCapacity}} Kg.</h3>
+              <h3> {{favorite.loadCapacity}} kg.</h3>
     
               <p> {{favorite.price}} €.</p>
     
             </ion-label>
-    
           </ion-item>
-
           <ion-item-options>
             <button danger (click)="deleteItem(favorite)">Delete</button>
           </ion-item-options>
-          
         </ion-list>
-    
   </div>  
   <div *ngIf="favorites.length == 0" class="empty-list">
     Please add a new Favorite ForkLift.
   </div>
 </ion-content>
- 
-<!-- <ion-footer (click)="logout()">
-  <ion-toolbar color="medium">
-    <ion-title>Log out, see you again!</ion-title>
-  </ion-toolbar>
-</ion-footer> -->
 
     
 
