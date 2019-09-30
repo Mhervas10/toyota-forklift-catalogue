@@ -21,73 +21,38 @@
     </ion-row>
   </div>
   <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
-
     <ion-item>
-
       <ion-label position="floating" color="primary">Model</ion-label>
-
       <ion-input type="text" formControlName="model">  </ion-input>
-
     </ion-item>
-
     <ion-item>
-
       <ion-label position="floating" color="primary">Load Capacity</ion-label>
-
       <ion-input type="number" formControlName="loadCapacity"> </ion-input>
-      
     </ion-item>
-
     <ion-item>
-  
       <ion-label position="floating" color="primary">Aisle width for pallets 800x1200 lengthways</ion-label>
-
       <ion-input type="number" formControlName="aisleWidthForPallets">  </ion-input>
-
     </ion-item>
-
-
     <ion-item>
-
-        <ion-label position="floating" color="primary">Gradeability with load</ion-label>
-  
-        <ion-input type="number" formControlName="gradeabilityWithLoad"></ion-input>
-  
-      </ion-item>
-  
-      <ion-item>
-  
-        <ion-label position="floating" color="primary">Gradeability without load</ion-label>
-  
-        <ion-input type="number" formControlName="gradeabilityWithoutLoad"></ion-input>
-  
-      </ion-item>
-  
-      <ion-item>
-  
-        <ion-label position="floating" color="primary">Drive motor rating S2 60min</ion-label>
-  
-        <ion-input type="text" formControlName="driveMotorRating"></ion-input>
-  
-      </ion-item>
-
-      <ion-item>
-  
-        <ion-label position="floating" color="primary">Voltage</ion-label>
-  
-        <ion-input type="number" formControlName="voltage"></ion-input>
-  
-      </ion-item>
-
-      <ion-item>
-  
-        <ion-label position="floating" color="primary">Price</ion-label>
-  
-        <ion-input type="number" formControlName="price"></ion-input> 
-  
-      </ion-item>
-  
-  
+      <ion-label position="floating" color="primary">Gradeability with load</ion-label>
+      <ion-input type="number" formControlName="gradeabilityWithLoad"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Gradeability without load</ion-label>
+      <ion-input type="number" formControlName="gradeabilityWithoutLoad"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Drive motor rating S2 60min</ion-label>
+      <ion-input type="text" formControlName="driveMotorRating"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Voltage</ion-label>
+      <ion-input type="number" formControlName="voltage"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Price</ion-label>
+      <ion-input type="number" formControlName="price"></ion-input> 
+    </ion-item>
     <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Create</ion-button>
   </form>
 </ion-content>
