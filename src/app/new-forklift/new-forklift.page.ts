@@ -18,6 +18,7 @@ export class NewForkliftPage implements OnInit {
   validations_form: FormGroup;
   image: any;
 
+
   constructor(
     private imagePicker: ImagePicker,
     public toastCtrl: ToastController,
