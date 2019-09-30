@@ -29,7 +29,6 @@ export class FirebaseService {
     })
   }
 
-
   
   setCurrentForklift(forklift){
      this.currentForklift = forklift;
@@ -126,6 +125,14 @@ export class FirebaseService {
     console.log("Despues de añadir favoritos", this.favorites)
 
   }
+
+
+  deleteCurrentFavoriteForklift(favorite){
+    var i = this.favorites.indexOf(favorite);
+    this.favorites.splice(i,1);
+    console.log("Los favoritos son " ,this.favorites)
+  }
+
   getFavorites(){
     console.log("Antes de devolver favoritos", this.favorites)
     return this.favorites;

@@ -70,5 +70,9 @@ export class FavoritesForkLiftPage implements OnInit {
     })
   }
 
+  deleteItem(favorite) {
+    this.firebaseService.deleteCurrentFavoriteForklift(favorite);
+  }
+
 }
 
