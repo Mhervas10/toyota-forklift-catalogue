@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { ForkLiftDetailsPage } from './forkLiftDetails.page';
 
+
+
 const routes: Routes = [
   {
     path: '',
