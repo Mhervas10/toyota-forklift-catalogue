@@ -3,6 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="products"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/favoritesForkLift']" >
+        <ion-icon ios="ios-heart" md="md-heart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>ForkLift Details</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -118,7 +123,7 @@
 
   <!-- <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button> -->
 
-  <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button>
+  <!-- <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button> -->
 
   <ion-button class="submit-button" (click)="addFavorite(item)" expand="block" color="danger" type="submit">Add to favorites</ion-button>
   
