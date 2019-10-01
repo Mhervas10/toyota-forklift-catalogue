@@ -80,11 +80,7 @@ export class FavoritesForkLiftPage implements OnInit {
     return await loading.present();
   }
 
-  goToDetail(forklift) {
-    this.firebaseService.setCurrentForklift(forklift);
-    this.router.navigate(['/forkLiftDetails']);
-    
-  }
+
 
   logout(){
     this.authService.doLogout()
