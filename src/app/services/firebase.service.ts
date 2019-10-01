@@ -13,6 +13,7 @@ export class FirebaseService {
   private snapshotChangesSubscription: any;
   public favorites: Array<any>=[];
   public currentForklift;
+  public fav:  Array<any>=[];
 
   constructor(
     public afs: AngularFirestore,
@@ -31,7 +32,6 @@ export class FirebaseService {
     })
   }
 
-  
   setCurrentForklift(forklift){
      this.currentForklift = forklift;
      console.log(" El forklift seleccionado es: " ,this.currentForklift)
@@ -119,6 +119,12 @@ export class FirebaseService {
       })
     })
   }
+  getFavorites(){
+    this.storage.get('favorites').then( (val) => {
+      console.log("Antes de devolver favoritos", val)
+      return val;
+    });
+  }
 
 
   addFavorite(favorite){
@@ -138,27 +144,31 @@ export class FirebaseService {
       this.storage.set('favorites', this.favorites);
       console.log("Despues de añadir favoritos", this.favorites);
     });
-   
   }
 
-  getFavorites(){
-    this.storage.get('favorites').then( (val) => {
-      console.log("Antes de devolver favoritos", val)
-      return val;
-    });
-  }
-
-  
   deleteCurrentFavoriteForklift(favorite){
     var i = this.favorites.indexOf(favorite);
-    this.favorites.splice(i,1);
-    console.log("Los favoritos son " ,this.favorites)
+    console.log("Favorito a eliminar es ", favorite)
+
+    // Cargar favoritos anteriores 
+    this.storage.get('favorites').then( (val) => {
+      if(val) {
+        this.favorites = val;
+        this.favorites.splice(i,1);
+        this.storage.set('favorites', this.favorites);
+      }
+      else {
+        this.favorites = [favorite];
+      }
+      
+      console.log("Despues de eliminar favoritos", this.favorites);
+    });
+
+    // this.fav = this.favorites.splice(i,1);
+    // this.storage.remove( 'favorites', this.fav);
+    // console.log("Los favoritos son " ,this.favorites)
   }
 
-
-
-
-  
 }
 
 
