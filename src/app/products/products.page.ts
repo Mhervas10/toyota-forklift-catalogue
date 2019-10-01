@@ -138,9 +138,11 @@ setSearchedItems() {
   this.searchededItems = this.searchItems(this.searchTerm);
   if(this.searchededItems.length > 0) {
     this.status = 'search';
+    console.log("status: ", this.status);
   }
   else {
     this.status = 'products';
+    console.log("status: ", this.status);
   }
 }
 
@@ -168,12 +170,14 @@ checkboxClicked(filterClicked){
     }
   });
   // Update page status
-  console.log(this.filteredItems);
+  console.log("items filtrados son: ", this.filteredItems);
   if(this.filteredItems.length > 0) {
     this.status = "filter";
+    console.log("status: ", this.status);
   }
   else {
     this.status = 'products';
+    console.log("status: ", this.status);
   }
 }
 }

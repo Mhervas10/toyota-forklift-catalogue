@@ -32,7 +32,12 @@
 
   </ion-card>
 
-  <div *ngIf="forkliftList.length > 0 else noData">
+
+  
+  <!-- ****************** -->
+  <!-- Lista de productos -->
+  <!-- ****************** -->
+  <div *ngIf="status == 'products'">
     <ion-grid>
       <ion-row>
         <ion-col size="6" *ngFor="let forklift of items">
@@ -53,86 +58,50 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </div>
+  </div> 
 
-
-  <!-- ****************** -->
-  <!-- Lista de productos -->
-  <!-- ****************** -->
-  <ion-grid *ngIf="products.length > 0 && searchTerm == ''" align-items-start>
-    <ion-grid *ngIf="status == 'products'" align-items-start>
-      <ion-row>
-        <ion-col size="6" *ngFor="let item of products">
-          <ion-card (click)="goToDetail(item)" [ngClass]="{'background-gray': item.state == 'sold',
-             'background-red':  item.state == 'cancelled'}">
-            <img [src]="item.image" onError="this.src='./assets/imgs/default_image.jpg';">
-            <ion-card-header>
-              <ion-card-subtitle>{{item.category}}</ion-card-subtitle>
-              <ion-card-title class="ion-card-custom-title">{{item.title}}</ion-card-title>
-            </ion-card-header>
-
-            <ion-card-content class="product-price">
-              {{item.price}} €
-            </ion-card-content>
-
-            <!-- Buttons -->
-            <ion-grid>
-              <ion-row>
-                <ion-col (click)="toggleFavorite(item);$event.stopPropagation()" align-self-end>
-                  <ion-icon *ngIf="item.favorite !=true" class="favorite-icon" name="heart-empty"></ion-icon>
-                  <ion-icon *ngIf="item.favorite ==true" class="favorite-icon" name="heart"></ion-icon>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-grid>
 
     <!-- ********************* -->
     <!-- Resultados de búsqueda -->
     <!-- ********************** -->
-    <ion-grid *ngIf="products.length > 0 && searchTerm != '' && searchededItems.length >0" align-items-start>
-      <ion-grid *ngIf="status == 'search'" align-items-start>
+    <ion-grid *ngIf="status == 'search'" align-items-start>
+    
         <ion-row>
           <ion-col size="6" *ngFor="let item of searchededItems">
             <ion-card (click)="goToDetail(item)" [ngClass]="{'background-gray': item.state == 'sold',
              'background-red':  item.state == 'cancelled'}">
               <img [src]="item.image" onError="this.src='./assets/imgs/default_image.jpg';">
               <ion-card-header>
-                <ion-card-subtitle>{{item.category}}</ion-card-subtitle>
-                <ion-card-title class="ion-card-custom-title">{{item.title}}</ion-card-title>
+                <ion-card-subtitle>{{forklift.loadCapacity}} kg.</ion-card-subtitle>
+                <ion-card-title class="ion-card-custom-title">{{forklift.model | uppercase}}</ion-card-title>
               </ion-card-header>
 
               <ion-card-content class="product-price">
                 <!-- {{item.description}} -->
-                {{item.price}} €
+                {{forklift.price}} €
               </ion-card-content>
             </ion-card>
           </ion-col>
         </ion-row>
       </ion-grid>
-    </ion-grid>
+  
 
 
       <!-- ******************** -->
       <!-- Productos filtrados -->
       <!-- ******************* -->
-      <ion-grid *ngIf="status == 'filter'" align-items-start>
+      <ion-grid *ngIf="status == 'filter' && filteredItems.length>0" align-items-start>
         <ion-row>
-          <ion-col size="6" *ngFor="let item of filteredItems">
-            <ion-card (click)="goToDetail(item)" [ngClass]="{'background-gray': item.state == 'sold',
-           'background-red':  item.state == 'cancelled'}">
-              <img [src]="item.image" onError="this.src='./assets/imgs/default_image.jpg';">
+          <ion-col size="6" *ngFor="let forklift of filteredItems">
+            <ion-card (click)="goToDetail(forklift)">
+              <img [src]="forklift.image">
               <ion-card-header>
-                <ion-card-subtitle>{{item.category}}</ion-card-subtitle>
-                <ion-card-title class="ion-card-custom-title">{{item.title}}</ion-card-title>
+                <ion-card-subtitle>{{forklift.loadCapacity}} kg.</ion-card-subtitle>
+                <ion-card-title class="ion-card-custom-title">{{forklift.model | uppercase}}</ion-card-title>
               </ion-card-header>
 
               <ion-card-content class="product-price">
-                {{item.price}} €
+                {{forklift.price}} €
               </ion-card-content>
             </ion-card>
           </ion-col>
