@@ -155,12 +155,10 @@ export class FirebaseService {
       if(val) {
         this.favorites = val;
         this.favorites.splice(i,1);
-        this.storage.set('favorites', this.favorites);
-      }
-      else {
-        this.favorites = [favorite];
-      }
+        this.storage.remove('favorite');
       
+      }
+      this.storage.set('favorites', this.favorites);
       console.log("Despues de eliminar favoritos", this.favorites);
     });
 

@@ -104,5 +104,6 @@ export class FavoritesForkLiftPage implements OnInit {
     this.router.navigate(['/forkLiftDetails']);
   }
 
+
 }
 
