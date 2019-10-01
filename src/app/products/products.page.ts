@@ -17,7 +17,6 @@ import { FirebaseService } from '../services/firebase.service';
 export class ProductsPage implements OnInit {
 
   forkliftList = FORKLIFTS ;
-  
   products: Product[];
   searchTerm: string = "";
   filteredItems: Product[];
@@ -85,7 +84,10 @@ getItems (ev:any){
   }
 }
 
+<<<<<<< src/app/products/products.page.ts
  
+=======
+>>>>>>> src/app/products/products.page.ts
 
   logout(){
     this.authService.doLogout()

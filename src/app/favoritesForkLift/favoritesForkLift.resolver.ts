@@ -8,7 +8,7 @@ export class FavoritesForkLiftResolver implements Resolve<any> {
   constructor(private firebaseService: FirebaseService) {}
 
   resolve() {
-    return this.firebaseService.getForklifts();
+    return this.firebaseService.getFavorites();
   }
 
  

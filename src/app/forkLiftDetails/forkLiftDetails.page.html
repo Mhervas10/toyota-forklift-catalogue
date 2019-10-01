@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="danger">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="products"></ion-back-button>
     </ion-buttons>
@@ -19,115 +19,61 @@
         <img src="../../assets/imgs/{{item.model}}.jpg" alt="this is the image"/>
       </ion-col>
     </ion-row>
-    <!-- <ion-row>
-      <ion-col size="6" offset="3">
-        <ion-button fill="outline" expand="block" size="small" (click)="openImagePicker()">Change Picture</ion-button>
-      </ion-col>
-    </ion-row> -->
   </div>
-
   <div>
-
     <ion-item>
-
-      <ion-label  position="floating" color="primary">Model</ion-label>
-
-      {{item.model | uppercase}}
-
+      <ion-label  position="floating" color="danger">Model</ion-label>
+      <p>
+        {{item.model | uppercase}}
+      </p>
     </ion-item>
-
     <ion-item>
-
-      <ion-label position="floating" color="primary">Load Capacity</ion-label>
-      
-      <br>
-
-      <br>
-      
-      {{item.loadCapacity}} Kg.
-
+      <ion-label position="floating" color="danger">Load Capacity</ion-label>
+      <p>
+        {{item.loadCapacity}} Kg
+      </p>
     </ion-item>
-
     <ion-item>
-
-      <ion-label position="floating" color="primary">Aisle width for pallets 800cm X 1200cm </ion-label>
-
-      <br>
-
-      <br>
-      
-      {{item.aisleWidthForPallets}} mm.
-
+      <ion-label position="floating" color="danger">Aisle width for pallets 800x1200cm </ion-label>
+      <p>
+        {{item.aisleWidthForPallets}} mm
+      </p>
     </ion-item>
-
     <ion-item>
-
-      <ion-label position="floating" color="primary">Gradeability with Load</ion-label>
-
-      <br>
-
-      <br>
-
-      {{item.gradeabilityWithLoad}} mm.
-
+      <ion-label position="floating" color="danger">Gradeability with Load</ion-label>
+      <p>
+        {{item.gradeabilityWithLoad}} mm
+      </p>
     </ion-item>
-
-
     <ion-item>
-
-      <ion-label position="floating" color="primary">Gradeability without Load</ion-label>
-
-      <br>
-
-      <br>
-
-      {{item.gradeabilityWithoutLoad}} mm.
-
+      <ion-label position="floating" color="danger">Gradeability without Load</ion-label>
+      <p>
+        {{item.gradeabilityWithoutLoad}} mm
+      </p>
     </ion-item>
-
     <ion-item>
-
-      <ion-label position="floating" color="primary">Drive motor ratong S2 60min</ion-label>
-
-      <br>
-
-      <br>
-
-      {{item.driveMotorRating}} kW.
-
+      <ion-label position="floating" color="danger">Drive motor ratong S2 60min</ion-label>
+      <p>
+        {{item.driveMotorRating}} kW
+      </p>
     </ion-item>
-
     <ion-item>
-
-      <ion-label position="floating" color="primary">Voltage</ion-label>
-
-      <br>
-
-      <br>
-
-      {{item.voltage}} V/Ah.
-
+      <ion-label position="floating" color="danger">Voltage</ion-label>
+      <p>
+        {{item.voltage}} V/Ah
+      </p>
     </ion-item>
-
     <ion-item>
-
-      <ion-label position="floating" color="primary">Price</ion-label>
-
-      <br>
-
-      <br>
-
-      {{item.price}} €.
-
+      <ion-label position="floating" color="danger">Price</ion-label>
+      <p>
+        {{item.price}} €
+      </p>
     </ion-item>
-
   <!-- <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button> -->
 
   <!-- <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button> -->
-
   <ion-button class="submit-button" (click)="addFavorite(item)" expand="block" color="danger" type="submit">Add to favorites</ion-button>
-  
-  <ion-button class="delete-button" expand="block" color="primary" type="submit" ><ion-icon ios="ios-cart" md="md-cart"></ion-icon></ion-button>
-
+  <ion-button class="delete-button" expand="block" color="light" type="submit" >
+    <ion-icon ios="ios-cart" md="md-cart" color="dark"></ion-icon></ion-button>
 </div>  
 </ion-content>

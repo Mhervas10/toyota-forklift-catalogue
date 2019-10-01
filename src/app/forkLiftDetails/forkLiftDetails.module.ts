@@ -7,12 +7,18 @@ import { IonicModule } from '@ionic/angular';
 
 import { ForkLiftDetailsPage } from './forkLiftDetails.page';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 const routes: Routes = [
   {
     path: '',
     component: ForkLiftDetailsPage,
    
   }
+];
+
+imports: [
+  IonicStorageModule.forRoot()
 ];
 
 @NgModule({
@@ -27,3 +33,4 @@ const routes: Routes = [
   
 })
 export class ForkLiftDetailsPageModule {}
+export class AppModule {} 
