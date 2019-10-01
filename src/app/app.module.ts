@@ -20,6 +20,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 
 
 // import { NewForkliftModalPage } from './new-forklift-modal/new-forklift-modal.page';
@@ -31,7 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   // entryComponents: [NewForkliftModalPage],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({ scrollPadding: false}),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -39,7 +41,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFirestoreModule, // imports firebase/firestore
     AngularFireAuthModule, // imports firebase/auth
     AngularFireStorageModule, // imports firebase/storage
-   
+    IonicStorageModule.forRoot(),
 
   ],
   

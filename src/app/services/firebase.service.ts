@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class FirebaseService {
 
   constructor(
     public afs: AngularFirestore,
-    public afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth,
+    public storage:Storage
   ){}
 
   getForklifts(){
@@ -121,15 +123,23 @@ export class FirebaseService {
 
 
   addFavorite(favorite){
+    
     console.log("Favorito a añadir es ", favorite)
-    console.log("Antes de añadir favoritos", this.favorites)
-    this.favorites.push(favorite);
-    console.log("Despues de añadir favoritos", this.favorites)
 
+    // Cargar favoritos anteriores 
+    this.storage.get('favorites').then( (val) => {
+      this.favorites = val;
+      this.favorites.push(favorite);
+      this.storage.set('favorites', this.favorites);
+      console.log("Despues de añadir favoritos", this.favorites);
+    });
+   
   }
-  
   getFavorites(){
-    console.log("Antes de devolver favoritos", this.favorites)
-    return this.favorites;
+    this.storage.get('favorites').then( (val) => {
+      console.log("Antes de devolver favoritos", val)
+      return val;
+    });
   }
+
 }

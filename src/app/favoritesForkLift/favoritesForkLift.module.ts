@@ -9,6 +9,7 @@ import { FavoritesForkLiftPage } from './favoritesForkLift.page';
 import { FavoritesForkLiftResolver } from './favoritesForkLift.resolver';
 
 
+
 const routes: Routes = [
   {
     path: '',

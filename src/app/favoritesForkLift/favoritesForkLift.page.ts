@@ -6,6 +6,8 @@ import { Product } from '../_interfaces/product.interface';
 import { MenuController } from '@ionic/angular';
 import { FirebaseService } from '../services/firebase.service';
 
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'app-favoritesForkLift',
   templateUrl: './favoritesForkLift.page.html',
@@ -28,15 +30,36 @@ export class FavoritesForkLiftPage implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private menuCtrl: MenuController,
-    private firebaseService: FirebaseService
-
+    private firebaseService: FirebaseService,
+    public storage:Storage
     
-  ) { }
+  ) { 
+    this.setTheValue()
+    this.getTheValue()
+  }
+
+  setTheValue(){
+    this.storage.set('name', 'ironman')
+  }
+
+  getTheValue(){
+    this.storage.get('name').then( (val) => {
+
+      console.log("valeu is"  + val)
+    })
+  }
 
 
   ngOnInit() {
-    this.favorites = this.firebaseService.getFavorites();
-    console.log("Los favoritos son: ", this.favorites)
+    
+    //if (this.route && this.route.data) {
+       //this.getData();
+     //}
+    this.storage.get('favorites').then( (val) => {
+      console.log("Favoritos son: ", val)
+      this.favorites = val;
+    });
+    //console.log("Los favoritos son: ", this.favorites)
   }
 
   async getData(){
