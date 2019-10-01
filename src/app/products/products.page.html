@@ -21,13 +21,52 @@
 
   <!-- DESPLEGABLE FILTROS -->
   <ion-card class="filter-button" *ngIf="valor1">
-    AQUÍ VAN LOS FILTROS! :D
+
+    <ion-list>
+      <ion-list-header>Load Capacity (kg)</ion-list-header>
+      <ion-item *ngFor="let entry of filters">
+        <ion-label>{{entry.value}}</ion-label>
+        <ion-checkbox slot="end" (click)="checkboxClicked(entry)" slot="start" color="danger"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
   </ion-card>
 
-  <div *ngIf="forkliftList.length > 0 else noData">
-      <ion-grid>
+
+  
+  <!-- ****************** -->
+  <!-- Lista de productos -->
+  <!-- ****************** -->
+  <div *ngIf="status == 'products'">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" *ngFor="let forklift of items">
+          <ion-card (click)="goToDetail(forklift)" class="post">
+            <img src="../../assets/imgs/{{forklift.model}}.jpg" />
+            <ion-card-content>
+              <ion-card-title>
+                {{forklift.model | uppercase}}
+              </ion-card-title>
+              <p>
+                {{forklift.loadCapacity}} kg.
+              </p>
+              <p>
+                {{forklift.price}} €.
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> 
+
+
+    <!-- ********************* -->
+    <!-- Resultados de búsqueda -->
+    <!-- ********************** -->
+    <ion-grid *ngIf="status == 'search'" align-items-start>
         <ion-row>
-          <ion-col size="12" *ngFor="let forklift of items">
+          <ion-col size="6" *ngFor="let forklift of items">
               <ion-card  (click)="goToDetail(forklift)" class="post">
                 <img src="../../assets/imgs/{{forklift.model}}.jpg" />
                 <ion-card-content>
@@ -45,21 +84,42 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-    </div>
+  
 
-    <!-- SI NO HAY PRODUCTOS -->
-    <div *ngIf="forkliftList.length == 0" class="empty-list">
-      Please add new ForkLift.
-    </div>
+
+      <!-- ******************** -->
+      <!-- Productos filtrados -->
+      <!-- ******************* -->
+      <ion-grid *ngIf="status == 'filter' && filteredItems.length>0" align-items-start>
+        <ion-row>
+          <ion-col size="6" *ngFor="let forklift of filteredItems">
+            <ion-card (click)="goToDetail(forklift)">
+              <img [src]="forklift.image">
+              <ion-card-header>
+                <ion-card-subtitle>{{forklift.loadCapacity}} kg.</ion-card-subtitle>
+                <ion-card-title class="ion-card-custom-title">{{forklift.model | uppercase}}</ion-card-title>
+              </ion-card-header>
+
+              <ion-card-content class="product-price">
+                {{forklift.price}} €
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- SI NO HAY PRODUCTOS -->
+      <div *ngIf="forkliftList.length == 0" class="empty-list">
+        Please add new ForkLift.
+      </div>
 </ion-content>
-  <!-- FIN DEL BODY -->
+<!-- FIN DEL BODY -->
 
-<ion-footer >
+<ion-footer>
   <ion-toolbar color="danger">
     <ion-buttons slot="end">
       <!-- BOTÓN DEL MENÚ -->
-      <ion-menu-button color="light"
-          menu="first">
+      <ion-menu-button color="light" menu="first">
       </ion-menu-button>
     </ion-buttons>
     <ion-title (click)="logout()">Log out</ion-title>
@@ -68,8 +128,4 @@
 
 <!-- COMPONENTE MENÚ -->
 <!-- <app-menu></app-menu> -->
-<div  id="principal"></div>    
-
-    
-  
-  
+<div id="principal"></div>
