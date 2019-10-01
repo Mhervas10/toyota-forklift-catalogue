@@ -14,7 +14,6 @@ export class FirebaseService {
   private snapshotChangesSubscription: any;
   public favorites: Array<any> = [];
   public currentForklift;
-  public fav: Array<any> = [];
 
   constructor(
     public afs: AngularFirestore,
@@ -150,9 +149,8 @@ export class FirebaseService {
 
   deleteCurrentFavoriteForklift(favorite) {
     var i = this.favorites.indexOf(favorite);
-    console.log("Favorito a eliminar es ", favorite)
+    console.log("Favorito a eliminar es ", favorite);
 
-    // Cargar favoritos anteriores 
     this.storage.get('favorites').then((val) => {
       this.favorites = val;
       this.favorites.splice(i, 1);
