@@ -13,14 +13,14 @@
   <ion-toolbar>
     <ion-searchbar (ionInput)="getItems($event)" placeholder="Type your model..."></ion-searchbar>
     <ion-buttons slot="end">
-      <ion-button (click)="valor1 = !valor1">
+      <ion-button (click)="showFilter = !showFilter">
         <ion-icon slot="icon-only" name="md-funnel" color="danger"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 
   <!-- DESPLEGABLE FILTROS -->
-  <ion-card class="filter-button" *ngIf="valor1">
+  <ion-card class="filter-button" [ngStyle]="showFilter?{'opacity': '100'} : {'opacity': '0'}">
 
     <ion-list>
       <ion-list-header>Load Capacity (kg)</ion-list-header>
