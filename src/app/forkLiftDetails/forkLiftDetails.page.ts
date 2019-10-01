@@ -6,11 +6,14 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { ActivatedRoute, Router } from '@angular/router';
 import FORKLIFTS from './../../assets/data/forklifts.json';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-forkLiftDetails',
   templateUrl: './forkLiftDetails.page.html',
   styleUrls: ['./forkLiftDetails.page.scss'],
 })
+
+
 export class ForkLiftDetailsPage implements OnInit {
 
 forkliftList = FORKLIFTS;

@@ -121,20 +121,26 @@ export class FirebaseService {
     })
   }
 
+
   addFavorite(favorite){
     
     console.log("Favorito a añadir es ", favorite)
 
     // Cargar favoritos anteriores 
     this.storage.get('favorites').then( (val) => {
-      this.favorites = val;
-      this.favorites.push(favorite);
+      if(val) {
+        this.favorites = val;
+        this.favorites.push(favorite);
+      }
+      else {
+        this.favorites = [favorite];
+      }
+     
       this.storage.set('favorites', this.favorites);
       console.log("Despues de añadir favoritos", this.favorites);
     });
    
   }
-
   getFavorites(){
     this.storage.get('favorites').then( (val) => {
       console.log("Antes de devolver favoritos", val)
