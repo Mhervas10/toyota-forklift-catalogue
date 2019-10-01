@@ -84,10 +84,6 @@ getItems (ev:any){
   }
 }
 
-<<<<<<< src/app/products/products.page.ts
- 
-=======
->>>>>>> src/app/products/products.page.ts
 
   logout(){
     this.authService.doLogout()
