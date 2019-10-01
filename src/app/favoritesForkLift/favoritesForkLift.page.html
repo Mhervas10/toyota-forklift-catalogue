@@ -11,7 +11,7 @@
   <div *ngIf="favorites.length > 0" class="list-mini">
 
 <!-- se repite un sliding para cada torro metido en la lista de favoritos -->
-    <ion-item *ngFor="let favorite of favorites" [routerLink]="['/forkLiftDetails']">
+    <ion-item *ngFor="let favorite of favorites">
 
 <!-- aquí empieza el sliding -->
       <ion-item-sliding>
