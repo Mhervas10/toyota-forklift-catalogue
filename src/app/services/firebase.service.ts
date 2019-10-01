@@ -128,8 +128,14 @@ export class FirebaseService {
 
     // Cargar favoritos anteriores 
     this.storage.get('favorites').then( (val) => {
-      this.favorites = val;
-      this.favorites.push(favorite);
+      if(val) {
+        this.favorites = val;
+        this.favorites.push(favorite);
+      }
+      else {
+        this.favorites = [favorite];
+      }
+     
       this.storage.set('favorites', this.favorites);
       console.log("Despues de añadir favoritos", this.favorites);
     });

@@ -19,43 +19,10 @@
     </ion-buttons>
   </ion-toolbar>
 
-<<<<<<< src/app/products/products.page.html
-  <div *ngIf="products.length > 0" class="list-mini">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="6" *ngFor="let product of products">
-          
-            <ion-card (click)="goToDetail(product);" class="post">
-  
-              <img [src]="product.image" />
-              <ion-card-content>
-  
-                <ion-card-title>
-                  {{product.model}}
-                </ion-card-title>
-                <p>
-                  {{product.loadCapacity}} kg.
-                </p>
-                <p>
-                  {{product.price}} €.
-                </p>
-  
-              </ion-card-content>
-        
-            </ion-card>
-
-        </ion-col>
-
-      </ion-row>
-
-    </ion-grid>
-  </div>
-=======
   <!-- DESPLEGABLE FILTROS -->
   <ion-card class="filter-button" *ngIf="valor1">
     AQUÍ VAN LOS FILTROS! :D
   </ion-card>
->>>>>>> src/app/products/products.page.html
 
   <div *ngIf="forkliftList.length > 0 else noData">
       <ion-grid>
