@@ -1,41 +1,91 @@
 <ion-header>
   <ion-toolbar color="danger">
-       <ion-buttons slot="start">
-        <ion-back-button [routerLink]="['/products']"></ion-back-button>
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="['/products']"></ion-back-button>
     </ion-buttons>
     <ion-title>Favorite ForkLift List</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content *ngIf="favorites" class="list-mini-content" fullscreen>
+
   <div *ngIf="favorites.length > 0" class="list-mini">
-      <ion-list>
-          <ion-item *ngFor="let favorite of favorites" [routerLink]="['/forkLiftDetails']">
-            <ion-avatar slot="start" >
+
+<!-- se repite un sliding para cada torro metido en la lista de favoritos -->
+    <ion-item *ngFor="let favorite of favorites">
+
+<!-- aquí empieza el sliding -->
+      <ion-item-sliding>
+
+        <ion-item>
+
+          <ion-avatar slot="start" size="large">
+            <img src="../../assets/imgs/{{favorite.model}}.jpg">
+          </ion-avatar>
+
+          <ion-label>
+            <h2>{{favorite.model | uppercase}} </h2>
+            <h3>{{favorite.loadCapacity}} Kg.</h3>
+            <p>{{favorite.price}} €.</p>
+          </ion-label>
+
+          <!-- botones derecha y izquierda, para indicar el movimiento de slide -->
+          <ion-icon name="arrow-dropleft-circle" size="medium"></ion-icon>
+          <ion-icon name="arrow-dropright-circle" size="medium"></ion-icon>
+
+        </ion-item>
+
+<!-- aquí van los botones del slide -->
+
+        <ion-item-options>
+
+          <ion-item-option color="light">
+
+<!-- este boton nos envia a detalles del toro correspondiente al pulsarlo -->
+
+            <ion-button (click)="goToDetail(favorite)" color="primary" expand="block" size="medium">
+              <ion-icon slot="icon-only" name="more"></ion-icon>
+              Details
+            </ion-button>
+          </ion-item-option>
+          <ion-item-option color="light">
+
+<!-- este boton borra el toro correspondiente de la lista de favoritos al pulsar sobre el -->
+
+            <ion-button (click)="deleteItem(favorite)" color="secondary" expand="block" size="medium">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+              Delete
+            </ion-button>
+
+
+
+          </ion-item-option>
+
+<!-- he repetido los detalles del toro sobre el que se hace el slide, para saber en todo momento a que toro nos referimos, al ser que cuando hacemos el slide los detalles del principio no se ven, si creeis que no es necesario lo podeis borrar sin problemas  -->
+          <ion-item-option color="light">
+            <ion-avatar slot="start" size="large">
               <img src="../../assets/imgs/{{favorite.model}}.jpg">
             </ion-avatar>
             <ion-label>
-    
-              <h2> {{favorite.model}}</h2>
-    
-              <h3> {{favorite.loadCapacity}} kg.</h3>
-    
-              <p> {{favorite.price}} €.</p>
-    
+              <h2>{{favorite.model | uppercase}} </h2>
+              <h3>{{favorite.loadCapacity}} Kg.</h3>
+              <p>{{favorite.price}} €.</p>
             </ion-label>
-          </ion-item>
-          <ion-item-options>
-            <button danger (click)="deleteItem(favorite)">Delete</button>
-          </ion-item-options>
-        </ion-list>
-  </div>  
+          </ion-item-option>
+
+
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-item>
+  </div>
+
+
   <div *ngIf="favorites.length == 0" class="empty-list">
     Please add a new Favorite ForkLift.
   </div>
 </ion-content>
 
-    
-
-
-
-
+<!-- <ion-footer (click)="logout()">
+  <ion-toolbar color="medium">
+    <ion-title>Log out, see you again!</ion-title>
+  </ion-toolbar>
+</ion-footer> -->
