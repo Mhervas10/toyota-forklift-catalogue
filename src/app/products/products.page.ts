@@ -115,7 +115,6 @@ getItems (ev:any){
   }
 }
 
-
   logout(){
     this.authService.doLogout()
     .then(res => {
