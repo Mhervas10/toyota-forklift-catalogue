@@ -20,14 +20,15 @@
   </ion-toolbar>
 
   <!-- DESPLEGABLE FILTROS -->
-  <ion-card class="filter-button" [ngStyle]="showFilter?{'opacity': '100'} : {'opacity': '0'}">
+  <ion-card class="filter-button" [ngStyle]="showFilter?{'height': '50%' } : {'height': '0'}">
+
 
     <ion-list>
       <ion-list-header>Load Capacity (kg)</ion-list-header>
-      <ion-item *ngFor="let entry of filters">
+      <ion-item *ngFor="let entry of filters" >
         <ion-label>{{entry.value}}</ion-label>
         <ion-checkbox slot="end" (click)="checkboxClicked(entry)" slot="start" color="danger"></ion-checkbox>
-      </ion-item>
+      </ion-item>      
     </ion-list>
 
   </ion-card>
