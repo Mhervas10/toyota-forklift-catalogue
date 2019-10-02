@@ -80,7 +80,11 @@ export class FavoritesForkLiftPage implements OnInit {
     return await loading.present();
   }
 
-
+  // goToDetail(forklift) {
+  //   this.firebaseService.setCurrentForklift(forklift);
+  //   this.router.navigate(['/forkLiftDetails']);
+    
+  // }
 
   logout(){
     this.authService.doLogout()
@@ -99,6 +103,7 @@ export class FavoritesForkLiftPage implements OnInit {
     this.firebaseService.setCurrentForklift(favorite);
     this.router.navigate(['/forkLiftDetails']);
   }
+
 
 }
 

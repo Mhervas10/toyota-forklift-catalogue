@@ -94,7 +94,7 @@
         <ion-row>
           <ion-col size="6" *ngFor="let forklift of filteredItems">
             <ion-card (click)="goToDetail(forklift)">
-              <img [src]="forklift.image">
+              <img src="../../assets/imgs/{{forklift.model}}.jpg">
               <ion-card-header>
                 <ion-card-subtitle>{{forklift.loadCapacity}} kg.</ion-card-subtitle>
                 <ion-card-title class="ion-card-custom-title">{{forklift.model | uppercase}}</ion-card-title>
